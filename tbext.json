@@ -9,6 +9,9 @@
     "version"
   ],
   "properties": {
+    "permissions": {
+      "$ref": "#/definitions/permissions"
+    },
     "browser_action": {
       "type": "object",
       "additionalProperties": {
@@ -243,6 +246,31 @@
     }
   },
   "definitions": {
+    "permissions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "enum": [
+              "accountsRead",
+              "addressBooks",
+              "manifest:browser_action",
+              "manifest:cloud_file",
+              "manifest:commands",
+              "manifest:compose_action",
+              "menus",
+              "messagesRead",
+              "manifest:optional_permissions",
+              "pkcs11"
+            ]
+          }
+        ]
+      }
+    },
     "KeyName": {
       "id": "KeyName",
       "type": "string",
