@@ -1,3 +1,5 @@
+WIP.
+
 # tbext-manifest-schema
 
  * JSON Schema for Thunderbird extension.
@@ -22,4 +24,3 @@ Both are in `License` directory.
 not yet
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
-
