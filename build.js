@@ -299,6 +299,16 @@ const convertSub = (tree, rootName, isDefinition) => {
   if(tree['$ref']) {
     tree['$ref'] = `#${tree['$ref']}`;
   }
+  if(tree.preprocess) {
+    // all 'preprocess' are 'localize'
+    if(tree.description) {
+      tree.description = `${tree.description}\npreprocess: ${tree.preprocess}`;
+    }
+    else {
+      tree.description = `preprocess: ${tree.preprocess}`;
+    }
+    tree.preprocess = undefined;
+  }
   cnvOptional(tree, rootName);
   cnvType(tree);
   if(tree.choices) {

@@ -56,20 +56,20 @@
         "name": {
           "type": "string",
           "optional": false,
-          "preprocess": "localize"
+          "description": "preprocess: localize"
         },
         "short_name": {
           "type": "string",
-          "preprocess": "localize"
+          "description": "preprocess: localize"
         },
         "description": {
           "type": "string",
-          "preprocess": "localize"
+          "description": "preprocess: localize"
         },
         "author": {
           "type": "string",
-          "preprocess": "localize",
-          "onError": "warn"
+          "onError": "warn",
+          "description": "preprocess: localize"
         },
         "version": {
           "type": "string",
@@ -78,7 +78,7 @@
         "homepage_url": {
           "type": "string",
           "format": "url",
-          "preprocess": "localize"
+          "description": "preprocess: localize"
         }
       },
       "$id": "#ManifestBase"
@@ -212,11 +212,11 @@
           "properties": {
             "name": {
               "type": "string",
-              "preprocess": "localize"
+              "description": "preprocess: localize"
             },
             "url": {
               "type": "string",
-              "preprocess": "localize"
+              "description": "preprocess: localize"
             }
           }
         },
@@ -238,7 +238,7 @@
         "homepage_url": {
           "type": "string",
           "format": "url",
-          "preprocess": "localize"
+          "description": "preprocess: localize"
         },
         "langpack_id": {
           "type": "string",
@@ -308,7 +308,7 @@
         "homepage_url": {
           "type": "string",
           "format": "url",
-          "preprocess": "localize"
+          "description": "preprocess: localize"
         },
         "dictionaries": {
           "type": "object",
@@ -667,8 +667,7 @@
           ]
         },
         "uriTemplate": {
-          "description": "The URL of the handler, as a string. This string should include \"%s\" as a placeholder which will be replaced with the escaped URL of the document to be handled. This URL might be a true URL, or it could be a phone number, email address, or so forth.",
-          "preprocess": "localize",
+          "description": "The URL of the handler, as a string. This string should include \"%s\" as a placeholder which will be replaced with the escaped URL of the document to be handled. This URL might be a true URL, or it could be a phone number, email address, or so forth.\npreprocess: localize",
           "oneOf": [
             {
               "$ref": "#ExtensionURL"
@@ -1233,7 +1232,7 @@
       "properties": {
         "default_title": {
           "type": "string",
-          "preprocess": "localize"
+          "description": "preprocess: localize"
         },
         "default_icon": {
           "$ref": "#IconPath"
@@ -1249,7 +1248,7 @@
         "default_popup": {
           "type": "string",
           "format": "relativeUrl",
-          "preprocess": "localize"
+          "description": "preprocess: localize"
         },
         "browser_style": {
           "type": "boolean",
@@ -1269,8 +1268,7 @@
       "properties": {
         "name": {
           "type": "string",
-          "preprocess": "localize",
-          "description": "Name of the cloud file service."
+          "description": "Name of the cloud file service.\npreprocess: localize"
         },
         "service_url": {
           "type": "string",
@@ -1284,15 +1282,13 @@
         "settings_url": {
           "type": "string",
           "format": "relativeUrl",
-          "preprocess": "localize",
           "deprecated": true,
-          "description": "A page for configuring accounts, this is obsolete after Thunderbird 60."
+          "description": "A page for configuring accounts, this is obsolete after Thunderbird 60.\npreprocess: localize"
         },
         "management_url": {
           "type": "string",
           "format": "relativeUrl",
-          "preprocess": "localize",
-          "description": "A page for configuring accounts, to be displayed in the preferences UI."
+          "description": "A page for configuring accounts, to be displayed in the preferences UI.\npreprocess: localize"
         }
       }
     },
@@ -1348,7 +1344,7 @@
       "properties": {
         "default_title": {
           "type": "string",
-          "preprocess": "localize"
+          "description": "preprocess: localize"
         },
         "default_icon": {
           "$ref": "#IconPath"
@@ -1364,7 +1360,7 @@
         "default_popup": {
           "type": "string",
           "format": "relativeUrl",
-          "preprocess": "localize"
+          "description": "preprocess: localize"
         },
         "browser_style": {
           "type": "boolean",
