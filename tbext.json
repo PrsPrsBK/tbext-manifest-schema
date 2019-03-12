@@ -24,12 +24,11 @@
       ]
     },
     "KeyName": {
-      "id": "KeyName",
       "type": "string",
-      "format": "manifestShortcutKey"
+      "format": "manifestShortcutKey",
+      "$id": "#KeyName"
     },
     "ManifestBase": {
-      "id": "ManifestBase",
       "type": "object",
       "description": "Common properties for all manifest.json files",
       "properties": {
@@ -81,10 +80,10 @@
           "format": "url",
           "preprocess": "localize"
         }
-      }
+      },
+      "$id": "#ManifestBase"
     },
     "WebExtensionManifest": {
-      "id": "WebExtensionManifest",
       "type": "object",
       "description": "Represents a WebExtension manifest.json file",
       "$import": "ManifestBase",
@@ -228,10 +227,10 @@
       },
       "additionalProperties": {
         "$ref": "UnrecognizedProperty"
-      }
+      },
+      "$id": "#WebExtensionManifest"
     },
     "WebExtensionLangpackManifest": {
-      "id": "WebExtensionLangpackManifest",
       "type": "object",
       "description": "Represents a WebExtension language pack manifest.json file",
       "$import": "ManifestBase",
@@ -298,10 +297,10 @@
             }
           }
         }
-      }
+      },
+      "$id": "#WebExtensionLangpackManifest"
     },
     "WebExtensionDictionaryManifest": {
-      "id": "WebExtensionDictionaryManifest",
       "type": "object",
       "description": "Represents a WebExtension dictionary manifest.json file",
       "$import": "ManifestBase",
@@ -321,10 +320,10 @@
             }
           }
         }
-      }
+      },
+      "$id": "#WebExtensionDictionaryManifest"
     },
     "ThemeIcons": {
-      "id": "ThemeIcons",
       "type": "object",
       "properties": {
         "light": {
@@ -342,10 +341,11 @@
       },
       "additionalProperties": {
         "$ref": "UnrecognizedProperty"
-      }
+      },
+      "$id": "#ThemeIcons"
     },
     "OptionalPermission": {
-      "id": "OptionalPermission",
+      "$id": "#OptionalPermission",
       "type": "string",
       "enum": [
         "clipboardRead",
@@ -356,7 +356,7 @@
       ]
     },
     "OptionalPermissionOrOrigin": {
-      "id": "OptionalPermissionOrOrigin",
+      "$id": "#OptionalPermissionOrOrigin",
       "oneOf": [
         {
           "$ref": "OptionalPermission"
@@ -367,7 +367,7 @@
       ]
     },
     "Permission": {
-      "id": "Permission",
+      "$id": "#Permission",
       "oneOf": [
         {
           "$ref": "OptionalPermission"
@@ -384,7 +384,7 @@
       ]
     },
     "PermissionOrOrigin": {
-      "id": "PermissionOrOrigin",
+      "$id": "#PermissionOrOrigin",
       "oneOf": [
         {
           "$ref": "Permission"
@@ -395,29 +395,29 @@
       ]
     },
     "HttpURL": {
-      "id": "HttpURL",
       "type": "string",
       "format": "url",
-      "pattern": "^https?://.*$"
+      "pattern": "^https?://.*$",
+      "$id": "#HttpURL"
     },
     "ExtensionURL": {
-      "id": "ExtensionURL",
-      "type": "string",
-      "format": "strictRelativeUrl"
-    },
-    "ExtensionFileUrl": {
-      "id": "ExtensionFileUrl",
       "type": "string",
       "format": "strictRelativeUrl",
-      "pattern": "\\S"
+      "$id": "#ExtensionURL"
+    },
+    "ExtensionFileUrl": {
+      "type": "string",
+      "format": "strictRelativeUrl",
+      "pattern": "\\S",
+      "$id": "#ExtensionFileUrl"
     },
     "ImageDataOrExtensionURL": {
-      "id": "ImageDataOrExtensionURL",
       "type": "string",
-      "format": "imageDataOrStrictRelativeUrl"
+      "format": "imageDataOrStrictRelativeUrl",
+      "$id": "#ImageDataOrExtensionURL"
     },
     "ExtensionID": {
-      "id": "ExtensionID",
+      "$id": "#ExtensionID",
       "oneOf": [
         {
           "type": "string",
@@ -430,7 +430,6 @@
       ]
     },
     "FirefoxSpecificProperties": {
-      "id": "FirefoxSpecificProperties",
       "type": "object",
       "properties": {
         "id": {
@@ -446,10 +445,11 @@
         "strict_max_version": {
           "type": "string"
         }
-      }
+      },
+      "$id": "#FirefoxSpecificProperties"
     },
     "MatchPattern": {
-      "id": "MatchPattern",
+      "$id": "#MatchPattern",
       "oneOf": [
         {
           "type": "string",
@@ -466,8 +466,8 @@
       ]
     },
     "MatchPatternRestricted": {
-      "id": "MatchPatternRestricted",
       "description": "Same as MatchPattern above, but excludes <all_urls>",
+      "$id": "#MatchPatternRestricted",
       "oneOf": [
         {
           "type": "string",
@@ -480,13 +480,12 @@
       ]
     },
     "MatchPatternUnestricted": {
-      "id": "MatchPatternUnestricted",
       "description": "Mostly unrestricted match patterns for privileged add-ons. This should technically be rejected for unprivileged add-ons, but, reasons. The MatchPattern class will still refuse privileged schemes for those extensions.",
+      "$id": "#MatchPatternUnestricted",
       "type": "string",
       "pattern": "^resource://(\\*|\\*\\.[^*/]+|[^*/]+)/.*$|^about:"
     },
     "ContentScript": {
-      "id": "ContentScript",
       "type": "object",
       "description": "Details of the script or CSS to inject. Either the code or the file property must be set, but both may not be set at the same time. Based on InjectDetails, but using underscore rather than camel case naming conventions.",
       "additionalProperties": {
@@ -547,10 +546,11 @@
           "default": "document_idle",
           "description": "The soonest that the JavaScript or CSS will be injected into the tab. Defaults to \"document_idle\"."
         }
-      }
+      },
+      "$id": "#ContentScript"
     },
     "IconPath": {
-      "id": "IconPath",
+      "$id": "#IconPath",
       "oneOf": [
         {
           "type": "object",
@@ -567,7 +567,7 @@
       ]
     },
     "IconImageData": {
-      "id": "IconImageData",
+      "$id": "#IconImageData",
       "oneOf": [
         {
           "type": "object",
@@ -584,13 +584,12 @@
       ]
     },
     "ImageData": {
-      "id": "ImageData",
       "type": "object",
       "isInstanceOf": "ImageData",
-      "postprocess": "convertImageDataToURL"
+      "postprocess": "convertImageDataToURL",
+      "$id": "#ImageData"
     },
     "UnrecognizedProperty": {
-      "id": "UnrecognizedProperty",
       "type": [
         "string",
         "number",
@@ -599,10 +598,11 @@
         "boolean",
         "null"
       ],
-      "deprecated": "An unexpected property was found in the WebExtension manifest."
+      "deprecated": "An unexpected property was found in the WebExtension manifest.",
+      "$id": "#UnrecognizedProperty"
     },
     "PersistentBackgroundProperty": {
-      "id": "PersistentBackgroundProperty",
+      "$id": "#PersistentBackgroundProperty",
       "oneOf": [
         {
           "type": "boolean",
@@ -620,7 +620,6 @@
       ]
     },
     "ProtocolHandler": {
-      "id": "ProtocolHandler",
       "type": "object",
       "description": "Represents a protocol handler definition.",
       "properties": {
@@ -679,10 +678,11 @@
             }
           ]
         }
-      }
+      },
+      "$id": "#ProtocolHandler"
     },
     "ThemeColor": {
-      "id": "ThemeColor",
+      "$id": "#ThemeColor",
       "oneOf": [
         {
           "type": "string"
@@ -708,7 +708,6 @@
       ]
     },
     "ThemeExperiment": {
-      "id": "ThemeExperiment",
       "type": "object",
       "properties": {
         "stylesheet": {
@@ -732,10 +731,10 @@
             "type": "string"
           }
         }
-      }
+      },
+      "$id": "#ThemeExperiment"
     },
     "ThemeType": {
-      "id": "ThemeType",
       "type": "object",
       "properties": {
         "images": {
@@ -1189,10 +1188,10 @@
       },
       "additionalProperties": {
         "$ref": "UnrecognizedProperty"
-      }
+      },
+      "$id": "#ThemeType"
     },
     "ThemeManifest": {
-      "id": "ThemeManifest",
       "type": "object",
       "description": "Contents of manifest.json for a static theme",
       "$import": "manifest.ManifestBase",
@@ -1214,7 +1213,8 @@
             }
           }
         }
-      }
+      },
+      "$id": "#ThemeManifest"
     }
   },
   "properties": {

@@ -291,22 +291,23 @@ const cnvType = member => {
 const cnvChoices = member => {
 };
 
-const convertSub = (tree, rootName, notDefinition) => {
-  if(notDefinition && tree.id) {
+const convertSub = (tree, rootName, isDefinition) => {
+  if(isDefinition && tree.id) {
+    tree['$id'] = `#${tree.id}`;
     tree.id = undefined;
   }
   cnvOptional(tree, rootName);
   cnvType(tree);
   if(tree.choices) {
     if(tree.choices.length === 1) {
-      convertSub(tree.choices[0], '', notDefinition); // only 2 cases, so maybe meaningless
+      convertSub(tree.choices[0], '', isDefinition); // only 2 cases, so maybe meaningless
       for(const key of Object.keys(tree.choices[0])) {
         tree[key] = tree.choices[0][key];
       }
     }
     else {
       for(const elm of tree.choices) {
-        convertSub(elm, '', notDefinition);
+        convertSub(elm, '', isDefinition);
       }
       tree.oneOf = tree.choices;
     }
@@ -314,27 +315,27 @@ const convertSub = (tree, rootName, notDefinition) => {
   }
   if(tree.properties) {
     for(const key of Object.keys(tree.properties)) {
-      convertSub(tree.properties[key], key, notDefinition);
+      convertSub(tree.properties[key], key, isDefinition);
     }
   }
   if(tree.additionalProperties) {
     // only for properties - commands
-    convertSub(tree.additionalProperties, `${rootName}.additionalProperties`, notDefinition);
+    convertSub(tree.additionalProperties, `${rootName}.additionalProperties`, isDefinition);
   }
   if(tree.patternProperties) {
     // only for definitions - WebExtensionLangpackManifest - sources
     for(const key of Object.keys(tree.patternProperties)) {
-      convertSub(tree.patternProperties[key], key, notDefinition);
+      convertSub(tree.patternProperties[key], key, isDefinition);
     }
   }
 };
 
 const convertRoot = raw => {
   for(const key of Object.keys(raw.definitions)) {
-    convertSub(raw.definitions[key], key, false);
+    convertSub(raw.definitions[key], key, true);
   }
   for(const key of Object.keys(raw.properties)) {
-    convertSub(raw.properties[key], key, true);
+    convertSub(raw.properties[key], key, false);
   }
 };
 
