@@ -309,6 +309,17 @@ const convertSub = (tree, rootName, isDefinition) => {
     }
     tree.preprocess = undefined;
   }
+  if(tree.onError) {
+    // all 2 'onError' are 'warn'
+    // ManifestBase - author, WebExtensionManifest - content_security_policy
+    if(tree.description) {
+      tree.description = `${tree.description}\nonError: ${tree.onError}`;
+    }
+    else {
+      tree.description = `onError: ${tree.onError}`;
+    }
+    tree.onError = undefined;
+  }
   cnvOptional(tree, rootName);
   cnvType(tree);
   if(tree.choices) {

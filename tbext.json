@@ -68,8 +68,7 @@
         },
         "author": {
           "type": "string",
-          "onError": "warn",
-          "description": "preprocess: localize"
+          "description": "preprocess: localize\nonError: warn"
         },
         "version": {
           "type": "string",
@@ -183,7 +182,7 @@
         "content_security_policy": {
           "type": "string",
           "format": "contentSecurityPolicy",
-          "onError": "warn"
+          "description": "onError: warn"
         },
         "permissions": {
           "type": "array",
