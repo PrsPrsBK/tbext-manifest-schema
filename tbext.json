@@ -109,7 +109,7 @@
           "default": "spanning"
         },
         "background": {
-          "choices": [
+          "oneOf": [
             {
               "type": "object",
               "properties": {
@@ -335,7 +335,7 @@
       }
     },
     "OptionalPermission": {
-      "choices": [
+      "oneOf": [
         {
           "type": "string",
           "enum": [
@@ -349,7 +349,7 @@
       ]
     },
     "OptionalPermissionOrOrigin": {
-      "choices": [
+      "oneOf": [
         {
           "$ref": "OptionalPermission"
         },
@@ -359,7 +359,7 @@
       ]
     },
     "Permission": {
-      "choices": [
+      "oneOf": [
         {
           "$ref": "OptionalPermission"
         },
@@ -375,7 +375,7 @@
       ]
     },
     "PermissionOrOrigin": {
-      "choices": [
+      "oneOf": [
         {
           "$ref": "Permission"
         },
@@ -403,7 +403,7 @@
       "format": "imageDataOrStrictRelativeUrl"
     },
     "ExtensionID": {
-      "choices": [
+      "oneOf": [
         {
           "type": "string",
           "pattern": "(?i)^\\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\}$"
@@ -433,7 +433,7 @@
       }
     },
     "MatchPattern": {
-      "choices": [
+      "oneOf": [
         {
           "type": "string",
           "enum": [
@@ -450,7 +450,7 @@
     },
     "MatchPatternRestricted": {
       "description": "Same as MatchPattern above, but excludes <all_urls>",
-      "choices": [
+      "oneOf": [
         {
           "type": "string",
           "pattern": "^(https?|wss?|file|ftp|\\*)://(\\*|\\*\\.[^*/]+|[^*/]+)/.*$"
@@ -463,7 +463,7 @@
     },
     "MatchPatternUnestricted": {
       "description": "Mostly unrestricted match patterns for privileged add-ons. This should technically be rejected for unprivileged add-ons, but, reasons. The MatchPattern class will still refuse privileged schemes for those extensions.",
-      "choices": [
+      "oneOf": [
         {
           "type": "string",
           "pattern": "^resource://(\\*|\\*\\.[^*/]+|[^*/]+)/.*$|^about:"
@@ -534,7 +534,7 @@
       }
     },
     "IconPath": {
-      "choices": [
+      "oneOf": [
         {
           "type": "object",
           "patternProperties": {
@@ -550,7 +550,7 @@
       ]
     },
     "IconImageData": {
-      "choices": [
+      "oneOf": [
         {
           "type": "object",
           "patternProperties": {
@@ -582,7 +582,7 @@
       "deprecated": "An unexpected property was found in the WebExtension manifest."
     },
     "PersistentBackgroundProperty": {
-      "choices": [
+      "oneOf": [
         {
           "type": "boolean",
           "enum": [
@@ -608,7 +608,7 @@
         },
         "protocol": {
           "description": "The protocol the site wishes to handle, specified as a string. For example, you can register to handle SMS text message links by registering to handle the \"sms\" scheme.",
-          "choices": [
+          "oneOf": [
             {
               "type": "string",
               "enum": [
@@ -648,7 +648,7 @@
         "uriTemplate": {
           "description": "The URL of the handler, as a string. This string should include \"%s\" as a placeholder which will be replaced with the escaped URL of the document to be handled. This URL might be a true URL, or it could be a phone number, email address, or so forth.",
           "preprocess": "localize",
-          "choices": [
+          "oneOf": [
             {
               "$ref": "ExtensionURL"
             },
@@ -660,7 +660,7 @@
       }
     },
     "ThemeColor": {
-      "choices": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -1365,7 +1365,7 @@
       }
     },
     "legacy": {
-      "choices": [
+      "oneOf": [
         {
           "type": "boolean"
         },
