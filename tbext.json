@@ -1609,12 +1609,5 @@
       "$ref": "ThemeExperiment",
       "optional": true
     }
-  },
-  "links": [
-    {
-      "href": "https://github.com/PrsPrsBK/thext-manifest-schema/blob/master/tbext.json",
-      "method": "GET",
-      "rel": "self"
-    }
-  ]
+  }
 }
