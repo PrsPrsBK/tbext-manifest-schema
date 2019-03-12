@@ -623,7 +623,7 @@
       "postprocess": "convertImageDataToURL"
     },
     "UnrecognizedProperty": {
-      "type": "any",
+      "type": "object",
       "deprecated": "An unexpected property was found in the WebExtension manifest."
     },
     "PersistentBackgroundProperty": {
