@@ -296,6 +296,9 @@ const convertSub = (tree, rootName, isDefinition) => {
     tree['$id'] = `#${tree.id}`;
     tree.id = undefined;
   }
+  if(tree['$ref']) {
+    tree['$ref'] = `#${tree['$ref']}`;
+  }
   cnvOptional(tree, rootName);
   cnvType(tree);
   if(tree.choices) {
