@@ -312,6 +312,10 @@ const convertSub = (tree, rootName) => {
       convertSub(tree.properties[key], key);
     }
   }
+  if(tree.additionalProperties) {
+    // only for properties - commands
+    convertSub(tree.additionalProperties, `${rootName}.additionalProperties`);
+  }
 };
 
 const convertRoot = raw => {

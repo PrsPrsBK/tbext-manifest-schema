@@ -161,7 +161,14 @@
             }
           },
           "additionalProperties": {
-            "type": "any",
+            "type": [
+              "string",
+              "number",
+              "object",
+              "array",
+              "boolean",
+              "null"
+            ],
             "deprecated": "An unexpected property was found in the WebExtension manifest"
           }
         },
@@ -1270,46 +1277,36 @@
         "properties": {
           "suggested_key": {
             "type": "object",
-            "optional": true,
             "properties": {
               "default": {
-                "$ref": "KeyName",
-                "optional": true
+                "$ref": "KeyName"
               },
               "mac": {
-                "$ref": "KeyName",
-                "optional": true
+                "$ref": "KeyName"
               },
               "linux": {
-                "$ref": "KeyName",
-                "optional": true
+                "$ref": "KeyName"
               },
               "windows": {
-                "$ref": "KeyName",
-                "optional": true
+                "$ref": "KeyName"
               },
               "chromeos": {
-                "type": "string",
-                "optional": true
+                "type": "string"
               },
               "android": {
-                "type": "string",
-                "optional": true
+                "type": "string"
               },
               "ios": {
-                "type": "string",
-                "optional": true
+                "type": "string"
               },
               "additionalProperties": {
                 "type": "string",
-                "deprecated": "Unknown platform name",
-                "optional": true
+                "deprecated": "Unknown platform name"
               }
             }
           },
           "description": {
-            "type": "string",
-            "optional": true
+            "type": "string"
           }
         }
       }
