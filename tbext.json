@@ -335,17 +335,13 @@
       }
     },
     "OptionalPermission": {
-      "oneOf": [
-        {
-          "type": "string",
-          "enum": [
-            "clipboardRead",
-            "clipboardWrite",
-            "geolocation",
-            "idle",
-            "notifications"
-          ]
-        }
+      "type": "string",
+      "enum": [
+        "clipboardRead",
+        "clipboardWrite",
+        "geolocation",
+        "idle",
+        "notifications"
       ]
     },
     "OptionalPermissionOrOrigin": {
@@ -463,12 +459,8 @@
     },
     "MatchPatternUnestricted": {
       "description": "Mostly unrestricted match patterns for privileged add-ons. This should technically be rejected for unprivileged add-ons, but, reasons. The MatchPattern class will still refuse privileged schemes for those extensions.",
-      "oneOf": [
-        {
-          "type": "string",
-          "pattern": "^resource://(\\*|\\*\\.[^*/]+|[^*/]+)/.*$|^about:"
-        }
-      ]
+      "type": "string",
+      "pattern": "^resource://(\\*|\\*\\.[^*/]+|[^*/]+)/.*$|^about:"
     },
     "ContentScript": {
       "type": "object",

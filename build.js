@@ -293,7 +293,14 @@ const convertSub = (tree, rootName) => {
   cnvOptional(tree, rootName);
   cnvType(tree);
   if(tree.choices) {
-    tree.oneOf = tree.choices;
+    if(tree.choices.length === 1) {
+      for(const key of Object.keys(tree.choices[0])) {
+        tree[key] = tree.choices[0][key];
+      }
+    }
+    else {
+      tree.oneOf = tree.choices;
+    }
     tree.choices = undefined;
   }
   if(tree.properties) {
