@@ -2,7 +2,8 @@ WIP.
 
 # tbext-manifest-schema
 
- * JSON Schema for Thunderbird extension.
+* JSON Schema for Thunderbird extension.
+* This package does not work much as [addons-linter](https://github.com/mozilla/addons-linter) does for Firefox Addons.
 
 
 ## make definition files
