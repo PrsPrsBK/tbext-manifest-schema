@@ -170,7 +170,7 @@
               "boolean",
               "null"
             ],
-            "deprecated": "An unexpected property was found in the WebExtension manifest"
+            "description": "*deprecated!* An unexpected property was found in the WebExtension manifest"
           }
         },
         "content_scripts": {
@@ -597,8 +597,8 @@
         "boolean",
         "null"
       ],
-      "deprecated": "An unexpected property was found in the WebExtension manifest.",
-      "$id": "#UnrecognizedProperty"
+      "$id": "#UnrecognizedProperty",
+      "description": "*deprecated!* An unexpected property was found in the WebExtension manifest."
     },
     "PersistentBackgroundProperty": {
       "$id": "#PersistentBackgroundProperty",
@@ -614,7 +614,7 @@
           "enum": [
             false
           ],
-          "deprecated": "Event pages are not currently supported. This will run as a persistent background page."
+          "description": "*deprecated!* Event pages are not currently supported. This will run as a persistent background page."
         }
       ]
     },
@@ -747,7 +747,7 @@
             },
             "headerURL": {
               "$ref": "#ImageDataOrExtensionURL",
-              "deprecated": "Please use <em>theme.images.theme_frame</em>, this alias will be removed in Firefox 69."
+              "description": "*deprecated!* Please use <em>theme.images.theme_frame</em>, this alias will be removed in Firefox 69."
             },
             "theme_frame": {
               "$ref": "#ImageDataOrExtensionURL"
@@ -765,7 +765,7 @@
             },
             "accentcolor": {
               "$ref": "#ThemeColor",
-              "deprecated": "Please use <em>theme.colors.frame</em>, this alias will be removed in Firefox 69."
+              "description": "*deprecated!* Please use <em>theme.colors.frame</em>, this alias will be removed in Firefox 69."
             },
             "frame": {
               "$ref": "#ThemeColor"
@@ -775,7 +775,7 @@
             },
             "textcolor": {
               "$ref": "#ThemeColor",
-              "deprecated": "Please use <em>theme.colors.tab_background_text</em>, this alias will be removed in Firefox 69."
+              "description": "*deprecated!* Please use <em>theme.colors.tab_background_text</em>, this alias will be removed in Firefox 69."
             },
             "tab_background_text": {
               "$ref": "#ThemeColor"
@@ -797,7 +797,7 @@
             },
             "toolbar_text": {
               "$ref": "#ThemeColor",
-              "deprecated": "Please use <em>theme.colors.bookmark_text</em>, this alias will be removed in Firefox 69."
+              "description": "*deprecated!* Please use <em>theme.colors.bookmark_text</em>, this alias will be removed in Firefox 69."
             },
             "bookmark_text": {
               "$ref": "#ThemeColor"
@@ -1275,14 +1275,12 @@
         },
         "new_account_url": {
           "type": "string",
-          "deprecated": true,
-          "description": "This property was never used."
+          "description": "*deprecated!* \nThis property was never used."
         },
         "settings_url": {
           "type": "string",
           "format": "relativeUrl",
-          "deprecated": true,
-          "description": "A page for configuring accounts, this is obsolete after Thunderbird 60.\npreprocess: localize"
+          "description": "*deprecated!* \nA page for configuring accounts, this is obsolete after Thunderbird 60.\npreprocess: localize"
         },
         "management_url": {
           "type": "string",
@@ -1325,7 +1323,7 @@
               },
               "additionalProperties": {
                 "type": "string",
-                "deprecated": "Unknown platform name"
+                "description": "*deprecated!* Unknown platform name"
               }
             }
           },

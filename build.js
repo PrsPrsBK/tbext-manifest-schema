@@ -320,6 +320,29 @@ const convertSub = (tree, rootName, isDefinition) => {
     }
     tree.onError = undefined;
   }
+  if(tree.deprecated !== undefined) {
+    // 'deprecated' are 'additionalProperties' and others
+    if(typeof tree.deprecated === 'boolean') {
+      // cloudFile's 2 cases
+      if(tree.deprecated) {
+        if(tree.description) {
+          tree.description = `*deprecated!* \n${tree.description}`;
+        }
+        else {
+          tree.description = `*deprecated!*`;
+        }
+      }
+    }
+    else {
+      if(tree.description) {
+        tree.description = `*deprecated!* ${tree.deprecated}\n${tree.description}`;
+      }
+      else {
+        tree.description = `*deprecated!* ${tree.deprecated}`;
+      }
+    }
+    tree.deprecated = undefined;
+  }
   cnvOptional(tree, rootName);
   cnvType(tree);
   if(tree.choices) {
