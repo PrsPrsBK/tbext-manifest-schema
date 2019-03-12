@@ -294,11 +294,15 @@ const convertSub = (tree, rootName) => {
   cnvType(tree);
   if(tree.choices) {
     if(tree.choices.length === 1) {
+      convertSub(tree.choices[0], ''); // only 2 cases, so maybe meaningless
       for(const key of Object.keys(tree.choices[0])) {
         tree[key] = tree.choices[0][key];
       }
     }
     else {
+      for(const elm of tree.choices) {
+        convertSub(elm, '');
+      }
       tree.oneOf = tree.choices;
     }
     tree.choices = undefined;
