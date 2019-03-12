@@ -316,6 +316,12 @@ const convertSub = (tree, rootName) => {
     // only for properties - commands
     convertSub(tree.additionalProperties, `${rootName}.additionalProperties`);
   }
+  if(tree.patternProperties) {
+    // only for definitions - WebExtensionLangpackManifest - sources
+    for(const key of Object.keys(tree.patternProperties)) {
+      convertSub(tree.patternProperties[key], key);
+    }
+  }
 };
 
 const convertRoot = raw => {
