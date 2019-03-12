@@ -131,7 +131,7 @@
                 "scripts": {
                   "type": "array",
                   "items": {
-                    "$ref": "ExtensionURL"
+                    "$ref": "#ExtensionURL"
                   }
                 },
                 "persistent": {
@@ -176,7 +176,7 @@
         "content_scripts": {
           "type": "array",
           "items": {
-            "$ref": "ContentScript"
+            "$ref": "#ContentScript"
           }
         },
         "content_security_policy": {
@@ -188,15 +188,15 @@
           "type": "array",
           "default": [],
           "items": {
-            "$ref": "PermissionOrOrigin",
-            "onError": "warn"
+            "$ref": "#PermissionOrOrigin",
+            "description": "onError: warn"
           }
         },
         "optional_permissions": {
           "type": "array",
           "items": {
-            "$ref": "OptionalPermissionOrOrigin",
-            "onError": "warn"
+            "$ref": "#OptionalPermissionOrOrigin",
+            "description": "onError: warn"
           },
           "default": []
         },
@@ -496,14 +496,14 @@
           "optional": false,
           "minItems": 1,
           "items": {
-            "$ref": "MatchPattern"
+            "$ref": "#MatchPattern"
           }
         },
         "exclude_matches": {
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "MatchPattern"
+            "$ref": "#MatchPattern"
           }
         },
         "include_globs": {
@@ -522,14 +522,14 @@
           "type": "array",
           "description": "The list of CSS files to inject",
           "items": {
-            "$ref": "ExtensionURL"
+            "$ref": "#ExtensionURL"
           }
         },
         "js": {
           "type": "array",
           "description": "The list of JS files to inject",
           "items": {
-            "$ref": "ExtensionURL"
+            "$ref": "#ExtensionURL"
           }
         },
         "all_frames": {
@@ -690,7 +690,7 @@
           "minItems": 3,
           "maxItems": 3,
           "items": {
-            "type": "integer",
+            "type": "number",
             "minimum": 0,
             "maximum": 255
           }
@@ -741,7 +741,7 @@
             "additional_backgrounds": {
               "type": "array",
               "items": {
-                "$ref": "ImageDataOrExtensionURL"
+                "$ref": "#ImageDataOrExtensionURL"
               },
               "maxItems": 15
             },
@@ -1220,7 +1220,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/definitions/permissions"
+        "$ref": "##/definitions/permissions"
       }
     },
     "browser_action": {
@@ -1240,7 +1240,7 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "ThemeIcons"
+            "$ref": "#ThemeIcons"
           },
           "description": "Specifies icons to use for dark and light themes"
         },
@@ -1350,7 +1350,7 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "ThemeIcons"
+            "$ref": "#ThemeIcons"
           },
           "description": "Specifies icons to use for dark and light themes"
         },
@@ -1406,7 +1406,7 @@
       "description": "A list of protocol handler definitions.",
       "type": "array",
       "items": {
-        "$ref": "ProtocolHandler"
+        "$ref": "#ProtocolHandler"
       }
     },
     "default_locale": {

@@ -345,6 +345,10 @@ const convertSub = (tree, rootName, isDefinition) => {
   }
   cnvOptional(tree, rootName);
   cnvType(tree);
+  if(tree.type === 'array') {
+    // only 2 cases, so maybe meaningless
+    convertSub(tree.items, `${rootName}.array.items`, isDefinition);
+  }
   if(tree.choices) {
     if(tree.choices.length === 1) {
       convertSub(tree.choices[0], '', isDefinition); // only 2 cases, so maybe meaningless
