@@ -258,13 +258,18 @@ const cnvOptional = (member, key) => {
       }
     }
     else {
-      //"default_locale".optional = "true" (string)
+      // only for "default_locale".optional = "true" (string)
       if(member.optional === 'true') {
         member.optional = undefined;
       }
       console.log(`error on optional: ${key}`);
     }
   }
+  // huh, maybe 'optional: undefined' means 'required'
+  // excludeing almost of 'difinition' part.
+  // else {
+  //   console.log(`no opt ${key}`);
+  // }
 };
 
 const cnvType = member => {
@@ -286,22 +291,22 @@ const cnvType = member => {
 const cnvChoices = member => {
 };
 
-const convertSub = (tree, rootName) => {
-  if(tree.id) {
+const convertSub = (tree, rootName, notDefinition) => {
+  if(notDefinition && tree.id) {
     tree.id = undefined;
   }
   cnvOptional(tree, rootName);
   cnvType(tree);
   if(tree.choices) {
     if(tree.choices.length === 1) {
-      convertSub(tree.choices[0], ''); // only 2 cases, so maybe meaningless
+      convertSub(tree.choices[0], '', notDefinition); // only 2 cases, so maybe meaningless
       for(const key of Object.keys(tree.choices[0])) {
         tree[key] = tree.choices[0][key];
       }
     }
     else {
       for(const elm of tree.choices) {
-        convertSub(elm, '');
+        convertSub(elm, '', notDefinition);
       }
       tree.oneOf = tree.choices;
     }
@@ -309,27 +314,27 @@ const convertSub = (tree, rootName) => {
   }
   if(tree.properties) {
     for(const key of Object.keys(tree.properties)) {
-      convertSub(tree.properties[key], key);
+      convertSub(tree.properties[key], key, notDefinition);
     }
   }
   if(tree.additionalProperties) {
     // only for properties - commands
-    convertSub(tree.additionalProperties, `${rootName}.additionalProperties`);
+    convertSub(tree.additionalProperties, `${rootName}.additionalProperties`, notDefinition);
   }
   if(tree.patternProperties) {
     // only for definitions - WebExtensionLangpackManifest - sources
     for(const key of Object.keys(tree.patternProperties)) {
-      convertSub(tree.patternProperties[key], key);
+      convertSub(tree.patternProperties[key], key, notDefinition);
     }
   }
 };
 
 const convertRoot = raw => {
   for(const key of Object.keys(raw.definitions)) {
-    convertSub(raw.definitions[key], key);
+    convertSub(raw.definitions[key], key, false);
   }
   for(const key of Object.keys(raw.properties)) {
-    convertSub(raw.properties[key], key);
+    convertSub(raw.properties[key], key, true);
   }
 };
 
