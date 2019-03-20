@@ -288,14 +288,28 @@ const cnvType = member => {
   }
 };
 
-const cnvChoices = member => {
-};
-
 const convertSub = (tree, rootName, isDefinition) => {
   if(isDefinition && tree.id) {
     tree['$id'] = `#${tree.id}`;
     tree.id = undefined;
   }
+
+  if(tree.choices) {
+    if(tree.choices.length === 1) {
+      convertSub(tree.choices[0], '', isDefinition); // only 2 cases, so maybe meaningless
+      for(const key of Object.keys(tree.choices[0])) {
+        tree[key] = tree.choices[0][key];
+      }
+    }
+    else {
+      for(const elm of tree.choices) {
+        convertSub(elm, '', isDefinition);
+      }
+      tree.oneOf = tree.choices;
+    }
+    tree.choices = undefined;
+  }
+
   if(tree['$ref']) {
     tree['$ref'] = `#${tree['$ref']}`;
   }
@@ -348,21 +362,6 @@ const convertSub = (tree, rootName, isDefinition) => {
   if(tree.type === 'array') {
     // only 2 cases, so maybe meaningless
     convertSub(tree.items, `${rootName}.array.items`, isDefinition);
-  }
-  if(tree.choices) {
-    if(tree.choices.length === 1) {
-      convertSub(tree.choices[0], '', isDefinition); // only 2 cases, so maybe meaningless
-      for(const key of Object.keys(tree.choices[0])) {
-        tree[key] = tree.choices[0][key];
-      }
-    }
-    else {
-      for(const elm of tree.choices) {
-        convertSub(elm, '', isDefinition);
-      }
-      tree.oneOf = tree.choices;
-    }
-    tree.choices = undefined;
   }
   if(tree.properties) {
     for(const key of Object.keys(tree.properties)) {
