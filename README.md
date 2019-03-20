@@ -14,9 +14,14 @@ $ npm run build -- --mozilla-repo /path/to/mozilla --comm-repo /path/to/comm
 
 # Known Issue
 
-## ``//`` comment
+## `//` comment
 
 one-line comment is allowed (only Firefox?), but I can not specify it in the JSON Scheme.
+
+## `default_locale`
+
+condition to be mandatory/prohibited cannot be described, 
+because it is on existence of `_locales` directory.
 
 
 # License
