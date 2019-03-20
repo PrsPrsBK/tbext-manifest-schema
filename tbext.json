@@ -252,6 +252,16 @@
         }
       }
     },
+    "dictionaries": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]{2}[a-zA-Z-]*$": {
+          "type": "string",
+          "format": "strictRelativeUrl",
+          "pattern": "\\.dic$"
+        }
+      }
+    },
     "permissionsList": {
       "enum": [
         "accountsRead",
@@ -270,29 +280,6 @@
       "type": "string",
       "format": "manifestShortcutKey",
       "$id": "#KeyName"
-    },
-    "WebExtensionDictionaryManifest": {
-      "type": "object",
-      "description": "Represents a WebExtension dictionary manifest.json file",
-      "$import": "ManifestBase",
-      "properties": {
-        "homepage_url": {
-          "type": "string",
-          "format": "url",
-          "description": "preprocess: localize"
-        },
-        "dictionaries": {
-          "type": "object",
-          "patternProperties": {
-            "^[a-z]{2}[a-zA-Z-]*$": {
-              "type": "string",
-              "format": "strictRelativeUrl",
-              "pattern": "\\.dic$"
-            }
-          }
-        }
-      },
-      "$id": "#WebExtensionDictionaryManifest"
     },
     "ThemeIcons": {
       "type": "object",
