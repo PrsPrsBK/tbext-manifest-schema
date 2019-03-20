@@ -9,145 +9,6 @@
     "version"
   ],
   "definitions": {
-    "minimum_chrome_version": {
-      "type": "string"
-    },
-    "minimum_opera_version": {
-      "type": "string"
-    },
-    "icons": {
-      "type": "object",
-      "patternProperties": {
-        "^[1-9]\\d*$": {
-          "$ref": "#ExtensionFileUrl"
-        }
-      }
-    },
-    "incognito": {
-      "type": "string",
-      "enum": [
-        "not_allowed",
-        "spanning"
-      ],
-      "default": "spanning"
-    },
-    "background": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "page": {
-              "$ref": "#ExtensionURL"
-            },
-            "persistent": {
-              "$ref": "#PersistentBackgroundProperty"
-            }
-          },
-          "additionalProperties": {
-            "$ref": "#UnrecognizedProperty"
-          }
-        },
-        {
-          "type": "object",
-          "properties": {
-            "scripts": {
-              "type": "array",
-              "items": {
-                "$ref": "#ExtensionURL"
-              }
-            },
-            "persistent": {
-              "$ref": "#PersistentBackgroundProperty"
-            }
-          },
-          "additionalProperties": {
-            "$ref": "#UnrecognizedProperty"
-          }
-        }
-      ]
-    },
-    "options_ui": {
-      "type": "object",
-      "properties": {
-        "page": {
-          "$ref": "#ExtensionURL"
-        },
-        "browser_style": {
-          "type": "boolean",
-          "default": true
-        },
-        "chrome_style": {
-          "type": "boolean"
-        },
-        "open_in_tab": {
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": {
-        "type": [
-          "string",
-          "number",
-          "object",
-          "array",
-          "boolean",
-          "null"
-        ],
-        "description": "*deprecated!* An unexpected property was found in the WebExtension manifest"
-      }
-    },
-    "content_scripts": {
-      "type": "array",
-      "items": {
-        "$ref": "#ContentScript"
-      }
-    },
-    "content_security_policy": {
-      "type": "string",
-      "format": "contentSecurityPolicy",
-      "description": "onError: warn"
-    },
-    "permissions": {
-      "type": "array",
-      "default": [],
-      "items": {
-        "$ref": "#PermissionOrOrigin",
-        "description": "onError: warn"
-      }
-    },
-    "optional_permissions": {
-      "type": "array",
-      "items": {
-        "$ref": "#OptionalPermissionOrOrigin",
-        "description": "onError: warn"
-      },
-      "default": []
-    },
-    "web_accessible_resources": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "developer": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "preprocess: localize"
-        },
-        "url": {
-          "type": "string",
-          "description": "preprocess: localize"
-        }
-      }
-    },
-    "hidden": {
-      "type": "boolean",
-      "default": false
-    },
-    "additionalProperties": {
-      "$ref": "#UnrecognizedProperty"
-    },
     "homepage_url": {
       "type": "string",
       "format": "url",
@@ -1164,12 +1025,144 @@
       "format": "url",
       "description": "preprocess: localize"
     },
+    "minimum_chrome_version": {
+      "type": "string"
+    },
+    "minimum_opera_version": {
+      "type": "string"
+    },
+    "icons": {
+      "type": "object",
+      "patternProperties": {
+        "^[1-9]\\d*$": {
+          "$ref": "#ExtensionFileUrl"
+        }
+      }
+    },
+    "incognito": {
+      "type": "string",
+      "enum": [
+        "not_allowed",
+        "spanning"
+      ],
+      "default": "spanning"
+    },
+    "background": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "page": {
+              "$ref": "#ExtensionURL"
+            },
+            "persistent": {
+              "$ref": "#PersistentBackgroundProperty"
+            }
+          },
+          "additionalProperties": {
+            "$ref": "#UnrecognizedProperty"
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "scripts": {
+              "type": "array",
+              "items": {
+                "$ref": "#ExtensionURL"
+              }
+            },
+            "persistent": {
+              "$ref": "#PersistentBackgroundProperty"
+            }
+          },
+          "additionalProperties": {
+            "$ref": "#UnrecognizedProperty"
+          }
+        }
+      ]
+    },
+    "options_ui": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#ExtensionURL"
+        },
+        "browser_style": {
+          "type": "boolean",
+          "default": true
+        },
+        "chrome_style": {
+          "type": "boolean"
+        },
+        "open_in_tab": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "object",
+          "array",
+          "boolean",
+          "null"
+        ],
+        "description": "*deprecated!* An unexpected property was found in the WebExtension manifest"
+      }
+    },
+    "content_scripts": {
+      "type": "array",
+      "items": {
+        "$ref": "#ContentScript"
+      }
+    },
+    "content_security_policy": {
+      "type": "string",
+      "format": "contentSecurityPolicy",
+      "description": "onError: warn"
+    },
     "permissions": {
       "type": "array",
-      "uniqueItems": true,
+      "default": [],
       "items": {
-        "$ref": "##/definitions/permissions"
+        "$ref": "#PermissionOrOrigin",
+        "description": "onError: warn"
       }
+    },
+    "optional_permissions": {
+      "type": "array",
+      "items": {
+        "$ref": "#OptionalPermissionOrOrigin",
+        "description": "onError: warn"
+      },
+      "default": []
+    },
+    "web_accessible_resources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "developer": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "preprocess: localize"
+        },
+        "url": {
+          "type": "string",
+          "description": "preprocess: localize"
+        }
+      }
+    },
+    "hidden": {
+      "type": "boolean",
+      "default": false
+    },
+    "additionalProperties": {
+      "$ref": "#UnrecognizedProperty"
     },
     "browser_action": {
       "type": "object",

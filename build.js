@@ -15,13 +15,6 @@ const outputSpec = {
       },
     },
     properties: {
-      permissions: {
-        type: 'array',
-        uniqueItems: true,
-        items: {
-          '$ref': '#/definitions/permissions',
-        },
-      },
     },
   },
   resultBase: {
@@ -392,9 +385,9 @@ const convertRoot = raw => {
     result.properties[key] = JSON.parse(JSON.stringify(raw.definitions.ManifestBase.properties[key]));
   }
   for(const key of Object.keys(raw.definitions.WebExtensionManifest.properties)) {
-    result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions.WebExtensionManifest.properties[key]));
+    result.properties[key] = JSON.parse(JSON.stringify(raw.definitions.WebExtensionManifest.properties[key]));
   }
-  result.definitions.additionalProperties = JSON.parse(JSON.stringify(raw.definitions.WebExtensionManifest.additionalProperties));
+  result.properties.additionalProperties = JSON.parse(JSON.stringify(raw.definitions.WebExtensionManifest.additionalProperties));
   for(const key of Object.keys(raw.definitions.WebExtensionLangpackManifest.properties)) {
     result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions.WebExtensionLangpackManifest.properties[key]));
   }
