@@ -389,7 +389,7 @@ const convertRoot = raw => {
   }
   result.properties.additionalProperties = JSON.parse(JSON.stringify(raw.definitions.WebExtensionManifest.additionalProperties));
   for(const key of Object.keys(raw.definitions.WebExtensionLangpackManifest.properties)) {
-    result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions.WebExtensionLangpackManifest.properties[key]));
+    result.properties[key] = JSON.parse(JSON.stringify(raw.definitions.WebExtensionLangpackManifest.properties[key]));
   }
   for(const key of Object.keys(raw.definitions.WebExtensionDictionaryManifest.properties)) {
     result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions.WebExtensionDictionaryManifest.properties[key]));

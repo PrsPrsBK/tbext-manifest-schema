@@ -14,63 +14,6 @@
       "format": "url",
       "description": "preprocess: localize"
     },
-    "langpack_id": {
-      "type": "string",
-      "pattern": "^[a-zA-Z][a-zA-Z-]+$"
-    },
-    "languages": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-z]{2}[a-zA-Z-]*$": {
-          "type": "object",
-          "properties": {
-            "chrome_resources": {
-              "type": "object",
-              "patternProperties": {
-                "^[a-zA-Z-.]+$": {
-                  "oneOf": [
-                    {
-                      "$ref": "#ExtensionURL"
-                    },
-                    {
-                      "type": "object",
-                      "patternProperties": {
-                        "^[a-z]+$": {
-                          "$ref": "#ExtensionURL"
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            "version": {
-              "type": "string"
-            }
-          }
-        }
-      }
-    },
-    "sources": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-z]+$": {
-          "type": "object",
-          "properties": {
-            "base_path": {
-              "$ref": "#ExtensionURL"
-            },
-            "paths": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "format": "strictRelativeUrl"
-              }
-            }
-          }
-        }
-      }
-    },
     "dictionaries": {
       "type": "object",
       "patternProperties": {
@@ -1163,6 +1106,63 @@
     },
     "additionalProperties": {
       "$ref": "#UnrecognizedProperty"
+    },
+    "langpack_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z-]+$"
+    },
+    "languages": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]{2}[a-zA-Z-]*$": {
+          "type": "object",
+          "properties": {
+            "chrome_resources": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-zA-Z-.]+$": {
+                  "oneOf": [
+                    {
+                      "$ref": "#ExtensionURL"
+                    },
+                    {
+                      "type": "object",
+                      "patternProperties": {
+                        "^[a-z]+$": {
+                          "$ref": "#ExtensionURL"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]+$": {
+          "type": "object",
+          "properties": {
+            "base_path": {
+              "$ref": "#ExtensionURL"
+            },
+            "paths": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "strictRelativeUrl"
+              }
+            }
+          }
+        }
+      }
     },
     "browser_action": {
       "type": "object",
