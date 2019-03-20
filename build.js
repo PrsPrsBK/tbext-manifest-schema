@@ -10,7 +10,7 @@ const outputSpec = {
   prefix: 'tbext',
   aggBase: {
     definitions: {
-      permissions: {
+      permissionsList: {
         enum: [],
       },
     },
@@ -239,8 +239,8 @@ const aggregate = (rootDir, apiGroup, result) => {
         else {
           if(apiSpec.permissions) {
             for(const p of apiSpec.permissions) {
-              if(result.definitions.permissions.enum.includes(p) === false) {
-                result.definitions.permissions.enum.push(p);
+              if(result.definitions.permissionsList.enum.includes(p) === false) {
+                result.definitions.permissionsList.enum.push(p);
               }
             }
           }
@@ -391,8 +391,12 @@ const convertRoot = raw => {
   for(const key of Object.keys(raw.definitions.ManifestBase.properties)) {
     result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions.ManifestBase.properties[key]));
   }
+  for(const key of Object.keys(raw.definitions.WebExtensionManifest.properties)) {
+    result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions.WebExtensionManifest.properties[key]));
+  }
+  result.definitions.additionalProperties = JSON.parse(JSON.stringify(raw.definitions.WebExtensionManifest.additionalProperties));
   for(const key of Object.keys(raw.definitions)) {
-    if(key !== 'ManifestBase') {
+    if(key !== 'ManifestBase' && key !== 'WebExtensionManifest') {
       result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions[key]));
     }
   }
