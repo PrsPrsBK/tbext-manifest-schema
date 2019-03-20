@@ -8,12 +8,7 @@ let goShrink = false;
 
 const outputSpec = {
   prefix: 'tbext',
-  resultBase: {
-    title: 'JSON schema for Thunderbird Extension manifest file',
-    $schema: 'http://json-schema.org/draft-07/schema#',
-    type: 'object',
-    additionalProperties: true,
-    required: [ 'manifest_version', 'name', 'version' ],
+  aggBase: {
     definitions: {
       permissions: {
         enum: [],
@@ -27,6 +22,17 @@ const outputSpec = {
           '$ref': '#/definitions/permissions',
         },
       },
+    },
+  },
+  resultBase: {
+    title: 'JSON schema for Thunderbird Extension manifest file',
+    $schema: 'http://json-schema.org/draft-07/schema#',
+    type: 'object',
+    additionalProperties: true,
+    required: [ 'manifest_version', 'name', 'version' ],
+    definitions: {
+    },
+    properties: {
     },
   },
   groupList: [
@@ -381,12 +387,25 @@ const convertSub = (tree, rootName, isDefinition) => {
 };
 
 const convertRoot = raw => {
+  const result = outputSpec.resultBase;
+  for(const key of Object.keys(raw.definitions.ManifestBase.properties)) {
+    result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions.ManifestBase.properties[key]));
+  }
   for(const key of Object.keys(raw.definitions)) {
-    convertSub(raw.definitions[key], key, true);
+    if(key !== 'ManifestBase') {
+      result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions[key]));
+    }
   }
   for(const key of Object.keys(raw.properties)) {
-    convertSub(raw.properties[key], key, false);
+    result.properties[key] = JSON.parse(JSON.stringify(raw.properties[key]));
   }
+  for(const key of Object.keys(result.definitions)) {
+    convertSub(result.definitions[key], key, true);
+  }
+  for(const key of Object.keys(result.properties)) {
+    convertSub(result.properties[key], key, false);
+  }
+  return result;
 };
 
 const isValidEnv = (report) => {
@@ -400,15 +419,15 @@ const program = () => {
   if(isValidEnv(numerateArgs()) === false) {
     return;
   }
-  const result = outputSpec.resultBase;
+  const agg = outputSpec.aggBase;
   outputSpec.groupList.forEach(apiGroup => {
     const tgtRepo = apiGroup.getRepository();
     if(tgtRepo !== '' && isValidEnv(checkRepositoryDirs(tgtRepo, apiGroup))) {
-      aggregate(tgtRepo, apiGroup, result);
+      aggregate(tgtRepo, apiGroup, agg);
     }
   });
-  fs.writeFileSync('tbext.raw.json', JSON.stringify(result, null, 2));
-  convertRoot(result);
+  fs.writeFileSync('tbext.raw.json', JSON.stringify(agg, null, 2));
+  const result = convertRoot(agg);
   if(goShrink) {
     fs.writeFileSync('tbext.min.json', JSON.stringify(result));
   }
