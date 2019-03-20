@@ -12,6 +12,13 @@ WIP.
 $ npm run build -- --mozilla-repo /path/to/mozilla --comm-repo /path/to/comm
 ```
 
+# Known Issue
+
+## ``//`` comment
+
+one-line comment is allowed (only Firefox?), but I can not specify it in the JSON Scheme.
+
+
 # License
 MPL-2.0.
 
