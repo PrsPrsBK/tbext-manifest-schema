@@ -9,21 +9,6 @@
     "version"
   ],
   "definitions": {
-    "homepage_url": {
-      "type": "string",
-      "format": "url",
-      "description": "preprocess: localize"
-    },
-    "dictionaries": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-z]{2}[a-zA-Z-]*$": {
-          "type": "string",
-          "format": "strictRelativeUrl",
-          "pattern": "\\.dic$"
-        }
-      }
-    },
     "theme": {
       "$ref": "#ThemeType"
     },
@@ -1161,6 +1146,16 @@
               }
             }
           }
+        }
+      }
+    },
+    "dictionaries": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]{2}[a-zA-Z-]*$": {
+          "type": "string",
+          "format": "strictRelativeUrl",
+          "pattern": "\\.dic$"
         }
       }
     },
