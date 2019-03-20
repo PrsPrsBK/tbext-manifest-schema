@@ -289,7 +289,6 @@ const cnvType = member => {
 
 const convertSub = (tree, rootName, isDefinition) => {
   if(isDefinition && tree.id) {
-    tree['$id'] = `#${tree.id}`;
     tree.id = undefined;
   }
 
@@ -310,7 +309,7 @@ const convertSub = (tree, rootName, isDefinition) => {
   }
 
   if(tree['$ref']) {
-    tree['$ref'] = `#${tree['$ref']}`;
+    tree['$ref'] = `#/definitions/${tree['$ref']}`;
   }
   if(tree.preprocess) {
     // all 'preprocess' are 'localize'

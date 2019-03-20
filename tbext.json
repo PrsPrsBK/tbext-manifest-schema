@@ -25,18 +25,17 @@
     },
     "KeyName": {
       "type": "string",
-      "format": "manifestShortcutKey",
-      "$id": "#KeyName"
+      "format": "manifestShortcutKey"
     },
     "ThemeIcons": {
       "type": "object",
       "properties": {
         "light": {
-          "$ref": "#ExtensionURL",
+          "$ref": "#/definitions/ExtensionURL",
           "description": "A light icon to use for dark themes"
         },
         "dark": {
-          "$ref": "#ExtensionURL",
+          "$ref": "#/definitions/ExtensionURL",
           "description": "The dark icon to use for light themes"
         },
         "size": {
@@ -45,12 +44,10 @@
         }
       },
       "additionalProperties": {
-        "$ref": "#UnrecognizedProperty"
-      },
-      "$id": "#ThemeIcons"
+        "$ref": "#/definitions/UnrecognizedProperty"
+      }
     },
     "OptionalPermission": {
-      "$id": "#OptionalPermission",
       "type": "string",
       "enum": [
         "clipboardRead",
@@ -61,21 +58,19 @@
       ]
     },
     "OptionalPermissionOrOrigin": {
-      "$id": "#OptionalPermissionOrOrigin",
       "oneOf": [
         {
-          "$ref": "#OptionalPermission"
+          "$ref": "#/definitions/OptionalPermission"
         },
         {
-          "$ref": "#MatchPattern"
+          "$ref": "#/definitions/MatchPattern"
         }
       ]
     },
     "Permission": {
-      "$id": "#Permission",
       "oneOf": [
         {
-          "$ref": "#OptionalPermission"
+          "$ref": "#/definitions/OptionalPermission"
         },
         {
           "type": "string",
@@ -89,40 +84,34 @@
       ]
     },
     "PermissionOrOrigin": {
-      "$id": "#PermissionOrOrigin",
       "oneOf": [
         {
-          "$ref": "#Permission"
+          "$ref": "#/definitions/Permission"
         },
         {
-          "$ref": "#MatchPattern"
+          "$ref": "#/definitions/MatchPattern"
         }
       ]
     },
     "HttpURL": {
       "type": "string",
       "format": "url",
-      "pattern": "^https?://.*$",
-      "$id": "#HttpURL"
+      "pattern": "^https?://.*$"
     },
     "ExtensionURL": {
       "type": "string",
-      "format": "strictRelativeUrl",
-      "$id": "#ExtensionURL"
+      "format": "strictRelativeUrl"
     },
     "ExtensionFileUrl": {
       "type": "string",
       "format": "strictRelativeUrl",
-      "pattern": "\\S",
-      "$id": "#ExtensionFileUrl"
+      "pattern": "\\S"
     },
     "ImageDataOrExtensionURL": {
       "type": "string",
-      "format": "imageDataOrStrictRelativeUrl",
-      "$id": "#ImageDataOrExtensionURL"
+      "format": "imageDataOrStrictRelativeUrl"
     },
     "ExtensionID": {
-      "$id": "#ExtensionID",
       "oneOf": [
         {
           "type": "string",
@@ -138,7 +127,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#ExtensionID"
+          "$ref": "#/definitions/ExtensionID"
         },
         "update_url": {
           "type": "string",
@@ -150,11 +139,9 @@
         "strict_max_version": {
           "type": "string"
         }
-      },
-      "$id": "#FirefoxSpecificProperties"
+      }
     },
     "MatchPattern": {
-      "$id": "#MatchPattern",
       "oneOf": [
         {
           "type": "string",
@@ -163,16 +150,15 @@
           ]
         },
         {
-          "$ref": "#MatchPatternRestricted"
+          "$ref": "#/definitions/MatchPatternRestricted"
         },
         {
-          "$ref": "#MatchPatternUnestricted"
+          "$ref": "#/definitions/MatchPatternUnestricted"
         }
       ]
     },
     "MatchPatternRestricted": {
       "description": "Same as MatchPattern above, but excludes <all_urls>",
-      "$id": "#MatchPatternRestricted",
       "oneOf": [
         {
           "type": "string",
@@ -186,7 +172,6 @@
     },
     "MatchPatternUnestricted": {
       "description": "Mostly unrestricted match patterns for privileged add-ons. This should technically be rejected for unprivileged add-ons, but, reasons. The MatchPattern class will still refuse privileged schemes for those extensions.",
-      "$id": "#MatchPatternUnestricted",
       "type": "string",
       "pattern": "^resource://(\\*|\\*\\.[^*/]+|[^*/]+)/.*$|^about:"
     },
@@ -194,7 +179,7 @@
       "type": "object",
       "description": "Details of the script or CSS to inject. Either the code or the file property must be set, but both may not be set at the same time. Based on InjectDetails, but using underscore rather than camel case naming conventions.",
       "additionalProperties": {
-        "$ref": "#UnrecognizedProperty"
+        "$ref": "#/definitions/UnrecognizedProperty"
       },
       "properties": {
         "matches": {
@@ -202,14 +187,14 @@
           "optional": false,
           "minItems": 1,
           "items": {
-            "$ref": "#MatchPattern"
+            "$ref": "#/definitions/MatchPattern"
           }
         },
         "exclude_matches": {
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "#MatchPattern"
+            "$ref": "#/definitions/MatchPattern"
           }
         },
         "include_globs": {
@@ -228,14 +213,14 @@
           "type": "array",
           "description": "The list of CSS files to inject",
           "items": {
-            "$ref": "#ExtensionURL"
+            "$ref": "#/definitions/ExtensionURL"
           }
         },
         "js": {
           "type": "array",
           "description": "The list of JS files to inject",
           "items": {
-            "$ref": "#ExtensionURL"
+            "$ref": "#/definitions/ExtensionURL"
           }
         },
         "all_frames": {
@@ -247,52 +232,48 @@
           "description": "If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Code cannot be inserted in top-level about:-frames. By default it is <code>false</code>."
         },
         "run_at": {
-          "$ref": "#extensionTypes.RunAt",
+          "$ref": "#/definitions/extensionTypes.RunAt",
           "default": "document_idle",
           "description": "The soonest that the JavaScript or CSS will be injected into the tab. Defaults to \"document_idle\"."
         }
-      },
-      "$id": "#ContentScript"
+      }
     },
     "IconPath": {
-      "$id": "#IconPath",
       "oneOf": [
         {
           "type": "object",
           "patternProperties": {
             "^[1-9]\\d*$": {
-              "$ref": "#ExtensionFileUrl"
+              "$ref": "#/definitions/ExtensionFileUrl"
             }
           },
           "additionalProperties": false
         },
         {
-          "$ref": "#ExtensionFileUrl"
+          "$ref": "#/definitions/ExtensionFileUrl"
         }
       ]
     },
     "IconImageData": {
-      "$id": "#IconImageData",
       "oneOf": [
         {
           "type": "object",
           "patternProperties": {
             "^[1-9]\\d*$": {
-              "$ref": "#ImageData"
+              "$ref": "#/definitions/ImageData"
             }
           },
           "additionalProperties": false
         },
         {
-          "$ref": "#ImageData"
+          "$ref": "#/definitions/ImageData"
         }
       ]
     },
     "ImageData": {
       "type": "object",
       "isInstanceOf": "ImageData",
-      "postprocess": "convertImageDataToURL",
-      "$id": "#ImageData"
+      "postprocess": "convertImageDataToURL"
     },
     "UnrecognizedProperty": {
       "type": [
@@ -303,11 +284,9 @@
         "boolean",
         "null"
       ],
-      "$id": "#UnrecognizedProperty",
       "description": "*deprecated!* An unexpected property was found in the WebExtension manifest."
     },
     "PersistentBackgroundProperty": {
-      "$id": "#PersistentBackgroundProperty",
       "oneOf": [
         {
           "type": "boolean",
@@ -375,18 +354,16 @@
           "description": "The URL of the handler, as a string. This string should include \"%s\" as a placeholder which will be replaced with the escaped URL of the document to be handled. This URL might be a true URL, or it could be a phone number, email address, or so forth.\npreprocess: localize",
           "oneOf": [
             {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             {
-              "$ref": "#HttpURL"
+              "$ref": "#/definitions/HttpURL"
             }
           ]
         }
-      },
-      "$id": "#ProtocolHandler"
+      }
     },
     "ThemeColor": {
-      "$id": "#ThemeColor",
       "oneOf": [
         {
           "type": "string"
@@ -415,7 +392,7 @@
       "type": "object",
       "properties": {
         "stylesheet": {
-          "$ref": "#ExtensionURL"
+          "$ref": "#/definitions/ExtensionURL"
         },
         "images": {
           "type": "object",
@@ -435,8 +412,7 @@
             "type": "string"
           }
         }
-      },
-      "$id": "#ThemeExperiment"
+      }
     },
     "ThemeType": {
       "type": "object",
@@ -447,402 +423,402 @@
             "additional_backgrounds": {
               "type": "array",
               "items": {
-                "$ref": "#ImageDataOrExtensionURL"
+                "$ref": "#/definitions/ImageDataOrExtensionURL"
               },
               "maxItems": 15
             },
             "headerURL": {
-              "$ref": "#ImageDataOrExtensionURL",
+              "$ref": "#/definitions/ImageDataOrExtensionURL",
               "description": "*deprecated!* Please use <em>theme.images.theme_frame</em>, this alias will be removed in Firefox 69."
             },
             "theme_frame": {
-              "$ref": "#ImageDataOrExtensionURL"
+              "$ref": "#/definitions/ImageDataOrExtensionURL"
             }
           },
           "additionalProperties": {
-            "$ref": "#ImageDataOrExtensionURL"
+            "$ref": "#/definitions/ImageDataOrExtensionURL"
           }
         },
         "colors": {
           "type": "object",
           "properties": {
             "tab_selected": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "accentcolor": {
-              "$ref": "#ThemeColor",
+              "$ref": "#/definitions/ThemeColor",
               "description": "*deprecated!* Please use <em>theme.colors.frame</em>, this alias will be removed in Firefox 69."
             },
             "frame": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "frame_inactive": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "textcolor": {
-              "$ref": "#ThemeColor",
+              "$ref": "#/definitions/ThemeColor",
               "description": "*deprecated!* Please use <em>theme.colors.tab_background_text</em>, this alias will be removed in Firefox 69."
             },
             "tab_background_text": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "tab_background_separator": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "tab_loading": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "tab_text": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "tab_line": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_text": {
-              "$ref": "#ThemeColor",
+              "$ref": "#/definitions/ThemeColor",
               "description": "*deprecated!* Please use <em>theme.colors.bookmark_text</em>, this alias will be removed in Firefox 69."
             },
             "bookmark_text": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_field": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_field_text": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_field_border": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_field_separator": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_top_separator": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_bottom_separator": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_vertical_separator": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "icons": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "icons_attention": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "button_background_hover": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "button_background_active": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "popup": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "popup_text": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "popup_border": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_field_focus": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_field_text_focus": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_field_border_focus": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "popup_highlight": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "popup_highlight_text": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "ntp_background": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "ntp_text": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "sidebar": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "sidebar_border": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "sidebar_text": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "sidebar_highlight": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "sidebar_highlight_text": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_field_highlight": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_field_highlight_text": {
-              "$ref": "#ThemeColor"
+              "$ref": "#/definitions/ThemeColor"
             }
           },
           "additionalProperties": {
-            "$ref": "#ThemeColor"
+            "$ref": "#/definitions/ThemeColor"
           }
         },
         "icons": {
           "type": "object",
           "properties": {
             "back": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "forward": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "reload": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "stop": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "bookmark_star": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "bookmark_menu": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "downloads": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "home": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "app_menu": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "cut": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "copy": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "paste": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "new_window": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "new_private_window": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "save_page": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "print": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "history": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "full_screen": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "find": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "options": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "addons": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "developer": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "synced_tabs": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "open_file": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "sidebars": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "subscribe": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "text_encoding": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "email_link": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "forget": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "pocket": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "getmsg": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "newmsg": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "address": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "reply": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "replyall": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "replylist": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "forwarding": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "delete": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "junk": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "file": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "nextUnread": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "prevUnread": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "mark": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "tag": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "compact": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "archive": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "chat": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "nextMsg": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "prevMsg": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "QFB": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "conversation": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "newcard": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "newlist": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "editcard": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "newim": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "send": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "spelling": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "attach": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "security": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "save": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "quote": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "buddy": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "join_chat": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "chat_accounts": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "calendar": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "tasks": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "synchronize": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "newevent": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "newtask": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "editevent": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "today": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "category": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "complete": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "priority": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "saveandclose": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "attendees": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "privacy": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "status": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "freebusy": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "timezones": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             }
           },
           "additionalProperties": {
-            "$ref": "#UnrecognizedProperty"
+            "$ref": "#/definitions/UnrecognizedProperty"
           }
         },
         "properties": {
@@ -891,9 +867,8 @@
         }
       },
       "additionalProperties": {
-        "$ref": "#UnrecognizedProperty"
-      },
-      "$id": "#ThemeType"
+        "$ref": "#/definitions/UnrecognizedProperty"
+      }
     }
   },
   "properties": {
@@ -906,7 +881,7 @@
       "type": "object",
       "properties": {
         "gecko": {
-          "$ref": "#FirefoxSpecificProperties"
+          "$ref": "#/definitions/FirefoxSpecificProperties"
         }
       }
     },
@@ -914,7 +889,7 @@
       "type": "object",
       "properties": {
         "gecko": {
-          "$ref": "#FirefoxSpecificProperties"
+          "$ref": "#/definitions/FirefoxSpecificProperties"
         }
       }
     },
@@ -954,7 +929,7 @@
       "type": "object",
       "patternProperties": {
         "^[1-9]\\d*$": {
-          "$ref": "#ExtensionFileUrl"
+          "$ref": "#/definitions/ExtensionFileUrl"
         }
       }
     },
@@ -972,14 +947,14 @@
           "type": "object",
           "properties": {
             "page": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "persistent": {
-              "$ref": "#PersistentBackgroundProperty"
+              "$ref": "#/definitions/PersistentBackgroundProperty"
             }
           },
           "additionalProperties": {
-            "$ref": "#UnrecognizedProperty"
+            "$ref": "#/definitions/UnrecognizedProperty"
           }
         },
         {
@@ -988,15 +963,15 @@
             "scripts": {
               "type": "array",
               "items": {
-                "$ref": "#ExtensionURL"
+                "$ref": "#/definitions/ExtensionURL"
               }
             },
             "persistent": {
-              "$ref": "#PersistentBackgroundProperty"
+              "$ref": "#/definitions/PersistentBackgroundProperty"
             }
           },
           "additionalProperties": {
-            "$ref": "#UnrecognizedProperty"
+            "$ref": "#/definitions/UnrecognizedProperty"
           }
         }
       ]
@@ -1005,7 +980,7 @@
       "type": "object",
       "properties": {
         "page": {
-          "$ref": "#ExtensionURL"
+          "$ref": "#/definitions/ExtensionURL"
         },
         "browser_style": {
           "type": "boolean",
@@ -1033,7 +1008,7 @@
     "content_scripts": {
       "type": "array",
       "items": {
-        "$ref": "#ContentScript"
+        "$ref": "#/definitions/ContentScript"
       }
     },
     "content_security_policy": {
@@ -1045,14 +1020,14 @@
       "type": "array",
       "default": [],
       "items": {
-        "$ref": "#PermissionOrOrigin",
+        "$ref": "#/definitions/PermissionOrOrigin",
         "description": "onError: warn"
       }
     },
     "optional_permissions": {
       "type": "array",
       "items": {
-        "$ref": "#OptionalPermissionOrOrigin",
+        "$ref": "#/definitions/OptionalPermissionOrOrigin",
         "description": "onError: warn"
       },
       "default": []
@@ -1081,7 +1056,7 @@
       "default": false
     },
     "additionalProperties": {
-      "$ref": "#UnrecognizedProperty"
+      "$ref": "#/definitions/UnrecognizedProperty"
     },
     "langpack_id": {
       "type": "string",
@@ -1099,13 +1074,13 @@
                 "^[a-zA-Z-.]+$": {
                   "oneOf": [
                     {
-                      "$ref": "#ExtensionURL"
+                      "$ref": "#/definitions/ExtensionURL"
                     },
                     {
                       "type": "object",
                       "patternProperties": {
                         "^[a-z]+$": {
-                          "$ref": "#ExtensionURL"
+                          "$ref": "#/definitions/ExtensionURL"
                         }
                       }
                     }
@@ -1127,7 +1102,7 @@
           "type": "object",
           "properties": {
             "base_path": {
-              "$ref": "#ExtensionURL"
+              "$ref": "#/definitions/ExtensionURL"
             },
             "paths": {
               "type": "array",
@@ -1151,18 +1126,18 @@
       }
     },
     "theme": {
-      "$ref": "#ThemeType"
+      "$ref": "#/definitions/ThemeType"
     },
     "default_locale": {
       "type": "string"
     },
     "theme_experiment": {
-      "$ref": "#ThemeExperiment"
+      "$ref": "#/definitions/ThemeExperiment"
     },
     "browser_action": {
       "type": "object",
       "additionalProperties": {
-        "$ref": "#UnrecognizedProperty"
+        "$ref": "#/definitions/UnrecognizedProperty"
       },
       "properties": {
         "default_title": {
@@ -1170,13 +1145,13 @@
           "description": "preprocess: localize"
         },
         "default_icon": {
-          "$ref": "#IconPath"
+          "$ref": "#/definitions/IconPath"
         },
         "theme_icons": {
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "#ThemeIcons"
+            "$ref": "#/definitions/ThemeIcons"
           },
           "description": "Specifies icons to use for dark and light themes"
         },
@@ -1198,7 +1173,7 @@
     "cloud_file": {
       "type": "object",
       "additionalProperties": {
-        "$ref": "#UnrecognizedProperty"
+        "$ref": "#/definitions/UnrecognizedProperty"
       },
       "properties": {
         "name": {
@@ -1230,23 +1205,23 @@
       "additionalProperties": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#UnrecognizedProperty"
+          "$ref": "#/definitions/UnrecognizedProperty"
         },
         "properties": {
           "suggested_key": {
             "type": "object",
             "properties": {
               "default": {
-                "$ref": "#KeyName"
+                "$ref": "#/definitions/KeyName"
               },
               "mac": {
-                "$ref": "#KeyName"
+                "$ref": "#/definitions/KeyName"
               },
               "linux": {
-                "$ref": "#KeyName"
+                "$ref": "#/definitions/KeyName"
               },
               "windows": {
-                "$ref": "#KeyName"
+                "$ref": "#/definitions/KeyName"
               },
               "chromeos": {
                 "type": "string"
@@ -1272,7 +1247,7 @@
     "compose_action": {
       "type": "object",
       "additionalProperties": {
-        "$ref": "#UnrecognizedProperty"
+        "$ref": "#/definitions/UnrecognizedProperty"
       },
       "properties": {
         "default_title": {
@@ -1280,13 +1255,13 @@
           "description": "preprocess: localize"
         },
         "default_icon": {
-          "$ref": "#IconPath"
+          "$ref": "#/definitions/IconPath"
         },
         "theme_icons": {
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "#ThemeIcons"
+            "$ref": "#/definitions/ThemeIcons"
           },
           "description": "Specifies icons to use for dark and light themes"
         },
@@ -1335,14 +1310,14 @@
     "experiment_apis": {
       "type": "object",
       "additionalProperties": {
-        "$ref": "#experiments.ExperimentAPI"
+        "$ref": "#/definitions/experiments.ExperimentAPI"
       }
     },
     "protocol_handlers": {
       "description": "A list of protocol handler definitions.",
       "type": "array",
       "items": {
-        "$ref": "#ProtocolHandler"
+        "$ref": "#/definitions/ProtocolHandler"
       }
     }
   }
