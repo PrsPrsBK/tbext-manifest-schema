@@ -396,7 +396,7 @@ const convertRoot = raw => {
   }
   for(const key of Object.keys(raw.definitions.ThemeManifest.properties)) {
     if(key !== 'icons') {
-      result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions.ThemeManifest.properties[key]));
+      result.properties[key] = JSON.parse(JSON.stringify(raw.definitions.ThemeManifest.properties[key]));
     }
   }
   for(const key of Object.keys(raw.definitions)) {

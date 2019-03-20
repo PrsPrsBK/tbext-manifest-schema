@@ -9,15 +9,6 @@
     "version"
   ],
   "definitions": {
-    "theme": {
-      "$ref": "#ThemeType"
-    },
-    "default_locale": {
-      "type": "string"
-    },
-    "theme_experiment": {
-      "$ref": "#ThemeExperiment"
-    },
     "permissionsList": {
       "enum": [
         "accountsRead",
@@ -1159,6 +1150,15 @@
         }
       }
     },
+    "theme": {
+      "$ref": "#ThemeType"
+    },
+    "default_locale": {
+      "type": "string"
+    },
+    "theme_experiment": {
+      "$ref": "#ThemeExperiment"
+    },
     "browser_action": {
       "type": "object",
       "additionalProperties": {
@@ -1344,12 +1344,6 @@
       "items": {
         "$ref": "#ProtocolHandler"
       }
-    },
-    "default_locale": {
-      "type": "string"
-    },
-    "theme_experiment": {
-      "$ref": "#ThemeExperiment"
     }
   }
 }
