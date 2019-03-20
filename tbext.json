@@ -262,6 +262,15 @@
         }
       }
     },
+    "theme": {
+      "$ref": "#ThemeType"
+    },
+    "default_locale": {
+      "type": "string"
+    },
+    "theme_experiment": {
+      "$ref": "#ThemeExperiment"
+    },
     "permissionsList": {
       "enum": [
         "accountsRead",
@@ -1147,31 +1156,6 @@
         "$ref": "#UnrecognizedProperty"
       },
       "$id": "#ThemeType"
-    },
-    "ThemeManifest": {
-      "type": "object",
-      "description": "Contents of manifest.json for a static theme",
-      "$import": "manifest.ManifestBase",
-      "properties": {
-        "theme": {
-          "$ref": "#ThemeType"
-        },
-        "default_locale": {
-          "type": "string"
-        },
-        "theme_experiment": {
-          "$ref": "#ThemeExperiment"
-        },
-        "icons": {
-          "type": "object",
-          "patternProperties": {
-            "^[1-9]\\d*$": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "$id": "#ThemeManifest"
     }
   },
   "properties": {
