@@ -9,53 +9,6 @@
     "version"
   ],
   "definitions": {
-    "manifest_version": {
-      "type": "number",
-      "minimum": 2,
-      "maximum": 2
-    },
-    "applications": {
-      "type": "object",
-      "properties": {
-        "gecko": {
-          "$ref": "#FirefoxSpecificProperties"
-        }
-      }
-    },
-    "browser_specific_settings": {
-      "type": "object",
-      "properties": {
-        "gecko": {
-          "$ref": "#FirefoxSpecificProperties"
-        }
-      }
-    },
-    "name": {
-      "type": "string",
-      "optional": false,
-      "description": "preprocess: localize"
-    },
-    "short_name": {
-      "type": "string",
-      "description": "preprocess: localize"
-    },
-    "description": {
-      "type": "string",
-      "description": "preprocess: localize"
-    },
-    "author": {
-      "type": "string",
-      "description": "preprocess: localize\nonError: warn"
-    },
-    "version": {
-      "type": "string",
-      "optional": false
-    },
-    "homepage_url": {
-      "type": "string",
-      "format": "url",
-      "description": "preprocess: localize"
-    },
     "minimum_chrome_version": {
       "type": "string"
     },
@@ -194,6 +147,11 @@
     },
     "additionalProperties": {
       "$ref": "#UnrecognizedProperty"
+    },
+    "homepage_url": {
+      "type": "string",
+      "format": "url",
+      "description": "preprocess: localize"
     },
     "langpack_id": {
       "type": "string",
@@ -1159,6 +1117,53 @@
     }
   },
   "properties": {
+    "manifest_version": {
+      "type": "number",
+      "minimum": 2,
+      "maximum": 2
+    },
+    "applications": {
+      "type": "object",
+      "properties": {
+        "gecko": {
+          "$ref": "#FirefoxSpecificProperties"
+        }
+      }
+    },
+    "browser_specific_settings": {
+      "type": "object",
+      "properties": {
+        "gecko": {
+          "$ref": "#FirefoxSpecificProperties"
+        }
+      }
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "description": "preprocess: localize"
+    },
+    "short_name": {
+      "type": "string",
+      "description": "preprocess: localize"
+    },
+    "description": {
+      "type": "string",
+      "description": "preprocess: localize"
+    },
+    "author": {
+      "type": "string",
+      "description": "preprocess: localize\nonError: warn"
+    },
+    "version": {
+      "type": "string",
+      "optional": false
+    },
+    "homepage_url": {
+      "type": "string",
+      "format": "url",
+      "description": "preprocess: localize"
+    },
     "permissions": {
       "type": "array",
       "uniqueItems": true,

@@ -389,7 +389,7 @@ const convertSub = (tree, rootName, isDefinition) => {
 const convertRoot = raw => {
   const result = outputSpec.resultBase;
   for(const key of Object.keys(raw.definitions.ManifestBase.properties)) {
-    result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions.ManifestBase.properties[key]));
+    result.properties[key] = JSON.parse(JSON.stringify(raw.definitions.ManifestBase.properties[key]));
   }
   for(const key of Object.keys(raw.definitions.WebExtensionManifest.properties)) {
     result.definitions[key] = JSON.parse(JSON.stringify(raw.definitions.WebExtensionManifest.properties[key]));
