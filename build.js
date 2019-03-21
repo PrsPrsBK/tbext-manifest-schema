@@ -368,6 +368,13 @@ const convertSub = (tree, rootName, isDefinition) => {
     // only 2 cases, so maybe meaningless
     convertSub(tree.items, `${rootName}.array.items`, isDefinition);
   }
+  else if(tree.type === 'string' && tree.pattern) {
+    if(tree.pattern.startsWith('(?i)')) {
+      tree.pattern = tree.pattern.replace(/a-f/g, 'a-fA-F')
+        .replace(/a-z/g, 'a-zA-Z')
+        .replace(/^\(\?i\)(.+)$/, '$1');
+    }
+  }
   if(tree.properties) {
     for(const key of Object.keys(tree.properties)) {
       convertSub(tree.properties[key], key, isDefinition);
