@@ -16,12 +16,12 @@ $ npm run build -- --mozilla-repo /path/to/mozilla --comm-repo /path/to/comm
 
 ## `//` comment
 
-one-line comment is allowed (only Firefox?), but I can not specify it in the JSON Scheme.
+One-line comment is allowed (only Firefox?), but I can not specify it in the JSON Scheme.
 
 ## `default_locale`
 
-condition to be mandatory/prohibited cannot be described, 
-because it is on existence of `_locales` directory.
+To be mandatory or prohibited is conditional.
+Its condition cannot be described, because it is determined by the existence of `_locales` directory.
 
 ## VS Code does not discriminate objects inside `oneOf`
 
