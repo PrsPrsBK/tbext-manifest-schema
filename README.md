@@ -1,13 +1,8 @@
-WIP.
-
-* TODO: confirm 'format'
-* TODO: regexp error `/(?i)^\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\}$/`
-
-
 # tbext-manifest-schema
 
 * JSON Schema for Thunderbird extension.
 * This package does not work much as [addons-linter](https://github.com/mozilla/addons-linter) does for Firefox Addons.
+* status: raughly O.K.
 
 
 ## make definition files
@@ -63,16 +58,37 @@ This result in warning "Matches multiple schemas when only one must validate".
   }
 ```
 
-reference:
-[Combining schemas — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/reference/combining.html)
+c.f. [Combining schemas — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/reference/combining.html)
 
 
-## `$id` does not work (Note for implementation)
+## `format` may result in error or warning
 
-[Structuring a complex schema — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/structuring.html)
-says "This functionality isn’t currently supported by the Python jsonschema library".
+
+JSON Schema Document says "JSON Schema implementations are not required to implement this part of the specification, and many of them do not".
+
+As for VS Code, validator seems to do nothing for `format`.
+
+So, this schema currently does nothing for it, and non-standard `format`
+such as `strictRelativeUrl` remains in.
+
+c.f. [string — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/reference/string.html)
+
+
+## Note for implementation
+
+### `$id` does not work
+
+JSON Schema Document says "This functionality isn’t currently supported by the Python jsonschema library".
 
 I do not know about VS Code's JSON Schema Validator, but anyway it does not handle `$id`.
+
+c.f. [Structuring a complex schema — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/structuring.html)
+
+
+### 'match mode (?i)' of RegExp
+
+For the case of `string` type, it can have `pattern` keyword.
+JSON Schema does not handle it, and it results in RegExp error.
 
 
 # Reference
