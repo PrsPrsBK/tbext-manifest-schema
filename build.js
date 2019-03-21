@@ -465,9 +465,7 @@ const program = () => {
   if(goShrink) {
     fs.writeFileSync('tbext.min.json', JSON.stringify(result));
   }
-  else {
-    fs.writeFileSync('tbext.json', JSON.stringify(result, null, 2));
-  }
+  fs.writeFileSync('tbext.json', JSON.stringify(result, null, 2));
 };
 
 program();

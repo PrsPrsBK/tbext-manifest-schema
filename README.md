@@ -5,7 +5,24 @@
 * status: raughly O.K.
 
 
-## make definition files
+## how to use
+
+As for VS Code's workspace config, such as `foo.code-workspace`
+
+```
+  {
+    "settings": {
+      "json.schemas": [
+        {
+          "fileMatch": ["*/path/to/manifest.json"],
+          "url": "./path/to/tbext.min.json",
+        }
+      ]
+    }
+  }
+```
+
+## how to make JSON Schema file
 
 ```console
 $ npm run build -- --mozilla-repo /path/to/mozilla --comm-repo /path/to/comm
