@@ -56,6 +56,10 @@ This result in warning "Matches multiple schemas when only one must validate".
   }
 ```
 
+reference:
+[Combining schemas — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/reference/combining.html)
+
+
 ## `$id` does not work (Note for implementation)
 
 [Structuring a complex schema — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/structuring.html)
