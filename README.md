@@ -30,6 +30,40 @@ says "This functionality isn’t currently supported by the Python jsonschema li
 
 I do not know about VS Code's JSON Schema Validator, but anyway it does not handle `$id`.
 
+## VS Code does not discriminate objects inside `oneOf`
+
+This result in warning "Matches multiple schemas when only one must validate".
+
+```sample.json
+  "background": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "number"
+          }
+        }
+      },
+      {
+        "type": "object",
+        "properties": {
+          "scripts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ExtensionURL"
+            }
+          },
+          "persistent": {
+            "$ref": "#/definitions/PersistentBackgroundProperty"
+          }
+        }
+      }
+    ]
+  },
+
+```
+
 
 # License
 MPL-2.0.
