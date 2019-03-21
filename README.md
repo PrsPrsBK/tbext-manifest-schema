@@ -36,12 +36,13 @@ One-line comment is allowed (only Firefox?), but I can not specify it in the JSO
 
 ## `default_locale`
 
-To be mandatory or prohibited is conditional.
-Its condition cannot be described, because it involves the existence of `_locales` directory.
+For `default_locale`, to be mandatory or prohibited is conditional.
+Its condition cannot be described in this JSON Schema, because it involves the existence of `_locales` directory.
 
-## VS Code does not discriminate objects inside `oneOf`
+## Warning "Matches multiple schemas when only one must validate"
 
-This result in warning "Matches multiple schemas when only one must validate".
+VS Code's validator does not discriminate objects inside `oneOf`
+and result in that warning on `background` or so.
 
 ```sample.json
   {
@@ -110,6 +111,8 @@ JSON Schema does not handle it, and it results in RegExp error.
 
 # Reference
 
+some useful staff.
+
 * [Thunderbird WebExtension APIs — Thunderbird WebExtensions latest documentation](https://thunderbird-webextensions.readthedocs.io/en/latest/)
 
 * [manifest.json - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
@@ -118,16 +121,16 @@ JSON Schema does not handle it, and it results in RegExp error.
 
 * [API Implementation Basics — Mozilla Source Tree Docs 68.0a1 documentation](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/basics.html#webextensions-experiments)
 
-For `experiments`.
+  For `experiments`.
 
 * [API Schemas — Mozilla Source Tree Docs 68.0a1 documentation](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/schema.html)
 
-This says "Refer to the documentation and examples at the JSON Schema site for details on how these items are defined in a schema".
-But some items in API schema (e.g. `choices`) does not match with specs of all versions like 0.4 or 0.7 currently (2019 March) on that site.
+  This says "Refer to the documentation and examples at the JSON Schema site for details on how these items are defined in a schema".
+  But some items in API schema (e.g. `choices`) does not match with specs of all versions like 0.4 or 0.7 currently (2019 March) on that site.
 
-* mozilla-central (or so)'s `toolkit/components/extensions/Schemas.jsm`
+* mozilla-central (or mozilla-beta or so)'s `toolkit/components/extensions/Schemas.jsm`
 
-This module handles `preprocess`, `optional` or so.
+  This module handles `preprocess`, `optional` or so.
 
 
 # License
@@ -140,6 +143,6 @@ Both are in `License` directory.
 
 # Release Notes
 
-not yet
+* 2019-03-21 0.0.1
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
