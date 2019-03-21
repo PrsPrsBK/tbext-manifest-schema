@@ -1,5 +1,9 @@
 WIP.
 
+* TODO: confirm 'format'
+* TODO: regexp error `/(?i)^\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\}$/`
+
+
 # tbext-manifest-schema
 
 * JSON Schema for Thunderbird extension.
