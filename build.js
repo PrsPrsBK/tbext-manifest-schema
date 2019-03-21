@@ -216,6 +216,7 @@ const aggregate = (rootDir, apiGroup, result) => {
       apiSpecList.forEach(apiSpec => {
         if(apiSpec.namespace === 'manifest'
           || apiSpec.namespace === 'experiments'
+          || apiSpec.namespace === 'extensionTypes'
           ) {
           if(apiSpec.types !== undefined) { // !define is common in specific apiGroup
             for(const typ of apiSpec.types) {
