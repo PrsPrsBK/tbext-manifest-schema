@@ -310,7 +310,12 @@ const convertSub = (tree, rootName, isDefinition) => {
   }
 
   if(tree['$ref']) {
-    tree['$ref'] = `#/definitions/${tree['$ref']}`;
+    if(tree['$ref'].includes('.')) {
+      tree['$ref'] = `#/definitions/${tree['$ref'].slice(1 + tree['$ref'].indexOf('.'))}`;
+    }
+    else {
+      tree['$ref'] = `#/definitions/${tree['$ref']}`;
+    }
   }
   if(tree.preprocess) {
     // all 'preprocess' are 'localize'
