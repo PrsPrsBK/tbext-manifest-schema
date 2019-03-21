@@ -23,13 +23,6 @@ one-line comment is allowed (only Firefox?), but I can not specify it in the JSO
 condition to be mandatory/prohibited cannot be described, 
 because it is on existence of `_locales` directory.
 
-## $id does not work
-
-[Structuring a complex schema — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/structuring.html)
-says "This functionality isn’t currently supported by the Python jsonschema library".
-
-I do not know about VS Code's JSON Schema Validator, but anyway it does not handle `$id`.
-
 ## VS Code does not discriminate objects inside `oneOf`
 
 This result in warning "Matches multiple schemas when only one must validate".
@@ -60,9 +53,15 @@ This result in warning "Matches multiple schemas when only one must validate".
         }
       }
     ]
-  },
-
+  }
 ```
+
+## `$id` does not work (Note for implementation)
+
+[Structuring a complex schema — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/structuring.html)
+says "This functionality isn’t currently supported by the Python jsonschema library".
+
+I do not know about VS Code's JSON Schema Validator, but anyway it does not handle `$id`.
 
 
 # License
