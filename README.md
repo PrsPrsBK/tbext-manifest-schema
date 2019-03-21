@@ -68,6 +68,28 @@ says "This functionality isn’t currently supported by the Python jsonschema li
 I do not know about VS Code's JSON Schema Validator, but anyway it does not handle `$id`.
 
 
+# Reference
+
+* [Thunderbird WebExtension APIs — Thunderbird WebExtensions latest documentation](https://thunderbird-webextensions.readthedocs.io/en/latest/)
+
+* [manifest.json - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
+
+* [pkcs11 - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11)
+
+* [API Implementation Basics — Mozilla Source Tree Docs 68.0a1 documentation](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/basics.html#webextensions-experiments)
+
+For `experiments`.
+
+* [API Schemas — Mozilla Source Tree Docs 68.0a1 documentation](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/schema.html)
+
+This says "Refer to the documentation and examples at the JSON Schema site for details on how these items are defined in a schema".
+But some items in API schema (e.g. `choices`) does not match with specs of all versions like 0.4 or 0.7 currently (2019 March) on that site.
+
+* mozilla-central (or so)'s `toolkit/components/extensions/Schemas.jsm`
+
+This module handles `preprocess`, `optional` or so.
+
+
 # License
 MPL-2.0.
 
