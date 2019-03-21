@@ -303,6 +303,104 @@
         }
       ]
     },
+    "ExperimentAPI": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "$ref": "#/definitions/ExperimentURL"
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "events": {
+              "$ref": "#/definitions/APIEvents",
+              "default": []
+            },
+            "paths": {
+              "$ref": "#/definitions/APIPaths",
+              "default": []
+            },
+            "script": {
+              "$ref": "#/definitions/ExperimentURL"
+            },
+            "scopes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/APIParentScope",
+                "description": "onError: warn"
+              },
+              "default": []
+            }
+          }
+        },
+        "child": {
+          "type": "object",
+          "properties": {
+            "paths": {
+              "$ref": "#/definitions/APIPaths"
+            },
+            "script": {
+              "$ref": "#/definitions/ExperimentURL"
+            },
+            "scopes": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/definitions/APIChildScope",
+                "description": "onError: warn"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ExperimentURL": {
+      "type": "string",
+      "format": "unresolvedRelativeUrl"
+    },
+    "APIPaths": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/APIPath"
+      },
+      "minItems": 1
+    },
+    "APIPath": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "APIEvents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/APIEvent",
+        "description": "onError: warn"
+      }
+    },
+    "APIEvent": {
+      "type": "string",
+      "enum": [
+        "startup"
+      ]
+    },
+    "APIParentScope": {
+      "type": "string",
+      "enum": [
+        "addon_parent",
+        "content_parent",
+        "devtools_parent"
+      ]
+    },
+    "APIChildScope": {
+      "type": "string",
+      "enum": [
+        "addon_child",
+        "content_child",
+        "devtools_child"
+      ]
+    },
     "ProtocolHandler": {
       "type": "object",
       "description": "Represents a protocol handler definition.",

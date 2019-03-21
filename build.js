@@ -214,7 +214,9 @@ const aggregate = (rootDir, apiGroup, result) => {
     try {
       const apiSpecList = JSON.parse(stripJsonComments(fs.readFileSync(schemaFileFull, 'utf8')));
       apiSpecList.forEach(apiSpec => {
-        if(apiSpec.namespace === 'manifest') {
+        if(apiSpec.namespace === 'manifest'
+          || apiSpec.namespace === 'experiments'
+          ) {
           if(apiSpec.types !== undefined) { // !define is common in specific apiGroup
             for(const typ of apiSpec.types) {
               if(typ['$extend'] === 'WebExtensionManifest') {
@@ -224,7 +226,6 @@ const aggregate = (rootDir, apiGroup, result) => {
               }
               else if(typ.id) {
                 result.definitions[typ.id] = typ;
-                // result.definitions[typ.id].id = undefined;
               }
             }
           }
