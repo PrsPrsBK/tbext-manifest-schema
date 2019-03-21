@@ -9,20 +9,6 @@
     "version"
   ],
   "definitions": {
-    "permissionsList": {
-      "enum": [
-        "accountsRead",
-        "addressBooks",
-        "manifest:browser_action",
-        "manifest:cloud_file",
-        "manifest:commands",
-        "manifest:compose_action",
-        "menus",
-        "messagesRead",
-        "manifest:optional_permissions",
-        "pkcs11"
-      ]
-    },
     "KeyName": {
       "type": "string",
       "format": "manifestShortcutKey"
@@ -78,7 +64,17 @@
             "alarms",
             "mozillaAddons",
             "storage",
-            "unlimitedStorage"
+            "unlimitedStorage",
+            "accountsRead",
+            "addressBooks",
+            "browser_action",
+            "cloud_file",
+            "commands",
+            "compose_action",
+            "menus",
+            "messagesRead",
+            "optional_permissions",
+            "pkcs11"
           ]
         }
       ]

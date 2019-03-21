@@ -423,6 +423,15 @@ const convertRoot = raw => {
   for(const key of Object.keys(result.properties)) {
     convertSub(result.properties[key], key, false);
   }
+  for(const perm of result.definitions.permissionsList.enum) {
+    if(perm.includes(':')) {
+      result.definitions.Permission.oneOf[1].enum.push(perm.slice(1 + perm.indexOf(':')));
+    }
+    else {
+      result.definitions.Permission.oneOf[1].enum.push(perm);
+    }
+  }
+  result.definitions.permissionsList = undefined;
   return result;
 };
 
