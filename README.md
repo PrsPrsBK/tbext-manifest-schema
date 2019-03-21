@@ -25,38 +25,41 @@ One-line comment is allowed (only Firefox?), but I can not specify it in the JSO
 ## `default_locale`
 
 To be mandatory or prohibited is conditional.
-Its condition cannot be described, because it is determined by the existence of `_locales` directory.
+Its condition cannot be described, because it involves the existence of `_locales` directory.
 
 ## VS Code does not discriminate objects inside `oneOf`
 
 This result in warning "Matches multiple schemas when only one must validate".
 
 ```sample.json
-  "background": {
-    "oneOf": [
-      {
-        "type": "object",
-        "properties": {
-          "page": {
-            "type": "number"
-          }
-        }
-      },
-      {
-        "type": "object",
-        "properties": {
-          "scripts": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/ExtensionURL"
+  {
+    "two different subschema cannot be discriminated."
+    "background": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "number"
             }
-          },
-          "persistent": {
-            "$ref": "#/definitions/PersistentBackgroundProperty"
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "scripts": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ExtensionURL"
+              }
+            },
+            "persistent": {
+              "$ref": "#/definitions/PersistentBackgroundProperty"
+            }
           }
         }
-      }
-    ]
+      ]
+    }
   }
 ```
 
