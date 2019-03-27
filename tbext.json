@@ -73,6 +73,7 @@
             "compose_action",
             "menus",
             "messagesRead",
+            "geckoProfiler",
             "optional_permissions",
             "pkcs11"
           ]

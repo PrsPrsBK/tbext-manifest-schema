@@ -72,6 +72,10 @@ const outputSpec = {
           schema: 'toolkit/components/extensions/schemas/extension_types.json',
         },
         {
+          name: 'geckoProfiler',
+          schema: 'toolkit/components/extensions/schemas/geckoProfiler.json',
+        },
+        {
           name: 'i18n',
           schema: 'toolkit/components/extensions/schemas/i18n.json',
         },
