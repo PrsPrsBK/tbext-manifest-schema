@@ -144,5 +144,6 @@ Both are in `License` directory.
 # Release Notes
 
 * 2019-03-21 0.0.1
+* 2019-03-27 0.1.0 geckoProfiler
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
