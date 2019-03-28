@@ -9,10 +9,6 @@
     "version"
   ],
   "definitions": {
-    "KeyName": {
-      "type": "string",
-      "format": "manifestShortcutKey"
-    },
     "ThemeIcons": {
       "type": "object",
       "properties": {
@@ -69,10 +65,10 @@
             "addressBooks",
             "browser_action",
             "cloud_file",
-            "commands",
             "compose_action",
             "menus",
             "messagesRead",
+            "commands",
             "geckoProfiler",
             "optional_permissions",
             "pkcs11"
@@ -299,6 +295,10 @@
           "description": "*deprecated!* Event pages are not currently supported. This will run as a persistent background page."
         }
       ]
+    },
+    "KeyName": {
+      "type": "string",
+      "format": "manifestShortcutKey"
     },
     "ExperimentAPI": {
       "type": "object",
@@ -1447,50 +1447,6 @@
         }
       }
     },
-    "commands": {
-      "type": "object",
-      "additionalProperties": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/definitions/UnrecognizedProperty"
-        },
-        "properties": {
-          "suggested_key": {
-            "type": "object",
-            "properties": {
-              "default": {
-                "$ref": "#/definitions/KeyName"
-              },
-              "mac": {
-                "$ref": "#/definitions/KeyName"
-              },
-              "linux": {
-                "$ref": "#/definitions/KeyName"
-              },
-              "windows": {
-                "$ref": "#/definitions/KeyName"
-              },
-              "chromeos": {
-                "type": "string"
-              },
-              "android": {
-                "type": "string"
-              },
-              "ios": {
-                "type": "string"
-              },
-              "additionalProperties": {
-                "type": "string",
-                "description": "*deprecated!* Unknown platform name"
-              }
-            }
-          },
-          "description": {
-            "type": "string"
-          }
-        }
-      }
-    },
     "compose_action": {
       "type": "object",
       "additionalProperties": {
@@ -1553,6 +1509,51 @@
           }
         }
       ]
+    },
+    "commands": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/definitions/UnrecognizedProperty"
+        },
+        "properties": {
+          "suggested_key": {
+            "type": "object",
+            "properties": {
+              "default": {
+                "$ref": "#/definitions/KeyName"
+              },
+              "mac": {
+                "$ref": "#/definitions/KeyName"
+              },
+              "linux": {
+                "$ref": "#/definitions/KeyName"
+              },
+              "windows": {
+                "$ref": "#/definitions/KeyName"
+              },
+              "chromeos": {
+                "type": "string"
+              },
+              "android": {
+                "type": "string"
+              },
+              "ios": {
+                "type": "string"
+              },
+              "additionalProperties": {
+                "type": "string",
+                "description": "*deprecated!* Unknown platform name"
+              }
+            }
+          },
+          "description": {
+            "type": "string",
+            "description": "preprocess: localize"
+          }
+        }
+      }
     },
     "experiment_apis": {
       "type": "object",

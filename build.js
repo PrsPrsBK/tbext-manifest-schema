@@ -52,6 +52,10 @@ const outputSpec = {
           schema: 'toolkit/components/extensions/schemas/manifest.json',
         },
         {
+          name: 'commands',
+          schema: 'browser/components/extensions/schemas/commands.json',
+        },
+        {
           name: 'contentScripts',
           schema: 'toolkit/components/extensions/schemas/content_scripts.json',
         },
