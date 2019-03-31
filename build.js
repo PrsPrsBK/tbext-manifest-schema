@@ -230,10 +230,16 @@ const aggregate = (rootDir, apiGroup, result) => {
             for(const typ of apiSpec.types) {
               if(typ['$extend'] === 'WebExtensionManifest') {
                 for(const propName of Object.keys(typ.properties)) {
+                  if(result.properties[propName] !== undefined) {
+                    console.log(`WARN: dup at ${apiSpec.namespace}`);
+                  }
                   result.properties[propName] = typ.properties[propName];
                 }
               }
               else if(typ.id) {
+                if(result.definitions[typ.id] !== undefined) {
+                  console.log(`WARN: dup at ${apiSpec.namespace}`);
+                }
                 result.definitions[typ.id] = typ;
               }
             }
