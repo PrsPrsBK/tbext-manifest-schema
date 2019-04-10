@@ -1375,6 +1375,9 @@
     "theme": {
       "$ref": "#/definitions/ThemeType"
     },
+    "dark_theme": {
+      "$ref": "#/definitions/ThemeType"
+    },
     "default_locale": {
       "type": "string"
     },
