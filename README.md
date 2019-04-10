@@ -145,5 +145,6 @@ Both are in `License` directory.
 
 * 2019-03-21 0.0.1
 * 2019-03-27 0.1.0 geckoProfiler
+* 2019-04-10 0.2.0 new property: `dark_theme`
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
