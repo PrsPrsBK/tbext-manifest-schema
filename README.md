@@ -28,6 +28,21 @@ As for VS Code's workspace config, such as `foo.code-workspace`
 $ npm run build -- --mozilla-repo /path/to/mozilla --comm-repo /path/to/comm
 ```
 
+(At 2019-04-11) You will see following error messages, but no problem.
+
+```console
+> tbext-manifest-schema@0.2.0 build X:\path\to\tbext-manifest-schema
+> node build.js "--mozilla-repo" "x:/repository/mozilla-central" "--comm-repo" "x:/repository/mozilla-central/comm"
+
+(API: commAPI, Schema Name: commands): Error: ENOENT: no such file or directory, open 'x:\repository\mozilla-central\comm\mail\components\extensions\schemas\commands.json'
+(API: commAPI, Schema Name: geckoProfiler): Error: ENOENT: no such file or directory, open 'x:\repository\mozilla-central\comm\toolkit\components\extensions\schemas\geckoProfiler.json'
+(API: commAPI, Schema Name: pkcs11): Error: ENOENT: no such file or directory, open 'x:\repository\mozilla-central\comm\mail\components\extensions\schemas\pkcs11.json'
+matches
+name
+version
+error on optional: default_locale
+```
+
 # Known Issue
 
 ## `//` comment
