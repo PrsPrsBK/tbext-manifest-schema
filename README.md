@@ -162,5 +162,6 @@ Both are in `License` directory.
 * 2019-03-27 0.1.0 geckoProfiler
 * 2019-04-10 0.2.0 new property: `dark_theme`
 * 2019-04-16 0.3.0 new property: `chrome_settings_overrides`
+* 2019-04-26 0.4.0 new permission: `accountsFolders`
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
