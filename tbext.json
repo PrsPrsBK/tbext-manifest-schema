@@ -66,6 +66,7 @@
             "browser_action",
             "cloud_file",
             "compose_action",
+            "accountsFolders",
             "menus",
             "messagesRead",
             "commands",
@@ -98,7 +99,8 @@
     "ExtensionFileUrl": {
       "type": "string",
       "format": "strictRelativeUrl",
-      "pattern": "\\S"
+      "pattern": "\\S",
+      "description": "preprocess: localize"
     },
     "ImageDataOrExtensionURL": {
       "type": "string",
