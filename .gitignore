@@ -1,4 +1,5 @@
 node_modules/
+others/
 yarn.lock
 jsconfig.json
 *.tgz
