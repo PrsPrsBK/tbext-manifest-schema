@@ -36,7 +36,16 @@
         "clipboardWrite",
         "geolocation",
         "idle",
-        "notifications"
+        "notifications",
+        "accountsRead",
+        "addressBooks",
+        "accountsFolders",
+        "menus.overrideContext",
+        "messagesMove",
+        "messagesRead",
+        "activeTab",
+        "tabs",
+        "tabHide"
       ]
     },
     "OptionalPermissionOrOrigin": {
@@ -71,9 +80,16 @@
             "messagesRead",
             "commands",
             "geckoProfiler",
+            "management",
             "optional_permissions",
-            "pkcs11"
+            "pkcs11",
+            "nativeMessaging",
+            "theme"
           ]
+        },
+        {
+          "type": "string",
+          "pattern": "^experiments(\\.\\w+)+$"
         }
       ]
     },

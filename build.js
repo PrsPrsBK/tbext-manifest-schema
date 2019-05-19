@@ -12,6 +12,10 @@ const outputSpec = {
     definitions: {
       permissionsList: {
         enum: [],
+        pattern: [], // only for Thunderbird.
+      },
+      optionalPermissionsList: {
+        enum: [],
       },
     },
     properties: {
@@ -236,6 +240,37 @@ const aggregate = (rootDir, apiGroup, result) => {
                   result.properties[propName] = typ.properties[propName];
                 }
               }
+              else if(typ['$extend'] === 'Permission') {
+                if(typ.choices[0].enum !== undefined) {
+                  for(const p of typ.choices[0].enum) {
+                    if(result.definitions.permissionsList.enum.includes(p) === false) {
+                      result.definitions.permissionsList.enum.push(p);
+                    }
+                    else {
+                      console.log(`Perm ADD: WARN: dup at ${apiSpec.namespace}: ${p}`);
+                    }
+                  }
+                }
+                else if(typ.choices[0].pattern !== undefined) { // only for Thunderbird.
+                  const pat = typ.choices[0].pattern;
+                  if(result.definitions.permissionsList.pattern.includes(pat) === false) {
+                    result.definitions.permissionsList.pattern.push(pat);
+                  }
+                  else {
+                    console.log(`Perm PATTERN ADD: WARN: dup at ${apiSpec.namespace}: ${p}`);
+                  }
+                }
+              }
+              else if(typ['$extend'] === 'OptionalPermission') {
+                for(const p of typ.choices[0].enum) {
+                  if(result.definitions.optionalPermissionsList.enum.includes(p) === false) {
+                    result.definitions.optionalPermissionsList.enum.push(p);
+                  }
+                  else {
+                    console.log(`OptPerm ADD: WARN: dup at ${apiSpec.namespace}: ${p}`);
+                  }
+                }
+              }
               else if(typ.id) {
                 if(result.definitions[typ.id] !== undefined) {
                   console.log(`WARN: dup at ${apiSpec.namespace}`);
@@ -452,7 +487,20 @@ const convertRoot = raw => {
       result.definitions.Permission.oneOf[1].enum.push(perm);
     }
   }
+  for(const pat of result.definitions.permissionsList.pattern) {
+    result.definitions.Permission.oneOf.push({ type: 'string', pattern: pat });
+  }
   result.definitions.permissionsList = undefined;
+  for(const perm of result.definitions.optionalPermissionsList.enum) {
+    let wk = perm;
+    if(perm.includes(':')) {
+      wk = perm.slice(1 + perm.indexOf(':'));
+    }
+    if(result.definitions.OptionalPermission.enum.includes(wk) === false) {
+      result.definitions.OptionalPermission.enum.push(wk);
+    }
+  }
+  result.definitions.optionalPermissionsList = undefined;
   return result;
 };
 
