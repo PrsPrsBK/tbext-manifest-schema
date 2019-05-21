@@ -1409,6 +1409,13 @@
         {
           "type": "object",
           "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "xul",
+                "bootstrap"
+              ]
+            },
             "options": {
               "type": "object",
               "properties": {
