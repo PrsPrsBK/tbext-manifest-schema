@@ -167,5 +167,6 @@ Both are in `License` directory.
 * 2019-05-20 0.5.1 fix: many permissions. `tabs`, `experiments` or so. 
 * 2019-05-22 0.6.0 new `type` property of `legacy`
 * 2019-06-15 0.7.0 new `edge` property of `browser_specific_settings`
+  [1542351](https://bugzilla.mozilla.org/show_bug.cgi?id=1542351)
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
