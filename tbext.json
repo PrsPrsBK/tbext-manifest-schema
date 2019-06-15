@@ -907,7 +907,23 @@
       "properties": {
         "gecko": {
           "$ref": "#/definitions/FirefoxSpecificProperties"
+        },
+        "edge": {
+          "type": "object",
+          "additionalProperties": {
+            "type": [
+              "string",
+              "number",
+              "object",
+              "array",
+              "boolean",
+              "null"
+            ]
+          }
         }
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/UnrecognizedProperty"
       }
     },
     "name": {
