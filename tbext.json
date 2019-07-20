@@ -694,7 +694,7 @@
             },
             "headerURL": {
               "$ref": "#/definitions/ImageDataOrExtensionURL",
-              "description": "*deprecated!* Please use <em>theme.images.theme_frame</em>, this alias will be removed in Firefox 69."
+              "description": "*deprecated!* Unsupported images property, use 'theme.images.theme_frame', this alias is ignored in Firefox >= 70."
             },
             "theme_frame": {
               "$ref": "#/definitions/ImageDataOrExtensionURL"
@@ -712,7 +712,7 @@
             },
             "accentcolor": {
               "$ref": "#/definitions/ThemeColor",
-              "description": "*deprecated!* Please use <em>theme.colors.frame</em>, this alias will be removed in Firefox 69."
+              "description": "*deprecated!* Unsupported colors property, use 'theme.colors.frame', this alias is ignored in Firefox >= 70."
             },
             "frame": {
               "$ref": "#/definitions/ThemeColor"
@@ -722,7 +722,7 @@
             },
             "textcolor": {
               "$ref": "#/definitions/ThemeColor",
-              "description": "*deprecated!* Please use <em>theme.colors.tab_background_text</em>, this alias will be removed in Firefox 69."
+              "description": "*deprecated!* Unsupported color property, use 'theme.colors.tab_background_text', this alias is ignored in Firefox >= 70."
             },
             "tab_background_text": {
               "$ref": "#/definitions/ThemeColor"
@@ -744,7 +744,7 @@
             },
             "toolbar_text": {
               "$ref": "#/definitions/ThemeColor",
-              "description": "*deprecated!* Please use <em>theme.colors.bookmark_text</em>, this alias will be removed in Firefox 69."
+              "description": "This color property is an alias of 'bookmark_text'."
             },
             "bookmark_text": {
               "$ref": "#/definitions/ThemeColor"
