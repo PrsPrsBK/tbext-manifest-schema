@@ -169,5 +169,8 @@ Both are in `License` directory.
 * 2019-05-22 0.6.0 new `type` property of `legacy`
 * 2019-06-15 0.7.0 new `edge` property of `browser_specific_settings`
   [1542351](https://bugzilla.mozilla.org/show_bug.cgi?id=1542351)
+* 2019-09-27
+  * New: `messageDisplayAction` API [1531597](https://bugzilla.mozilla.org/show_bug.cgi?id=1531597)
+  * New:  `data_format` property of `cloud_file` [1580838](https://bugzilla.mozilla.org/show_bug.cgi?id=1580838)
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
