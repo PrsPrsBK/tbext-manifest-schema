@@ -78,6 +78,7 @@
             "accountsFolders",
             "menus",
             "messagesRead",
+            "message_display_action",
             "commands",
             "geckoProfiler",
             "management",
@@ -1374,6 +1375,15 @@
           "type": "string",
           "format": "relativeUrl",
           "description": "A page for configuring accounts, to be displayed in the preferences UI.\npreprocess: localize"
+        },
+        "data_format": {
+          "type": "string",
+          "default": "ArrayBuffer",
+          "description": "Determines the format of the ``data`` argument in ``onFileUpload``.",
+          "enum": [
+            "ArrayBuffer",
+            "File"
+          ]
         }
       }
     },
@@ -1446,6 +1456,42 @@
           }
         }
       ]
+    },
+    "message_display_action": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/UnrecognizedProperty"
+      },
+      "properties": {
+        "default_title": {
+          "type": "string",
+          "description": "preprocess: localize"
+        },
+        "default_icon": {
+          "$ref": "#/definitions/IconPath"
+        },
+        "theme_icons": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/ThemeIcons"
+          },
+          "description": "Specifies icons to use for dark and light themes"
+        },
+        "default_popup": {
+          "type": "string",
+          "format": "relativeUrl",
+          "description": "preprocess: localize"
+        },
+        "browser_style": {
+          "type": "boolean",
+          "default": false
+        },
+        "default_area": {
+          "description": "Currently unused.",
+          "type": "string"
+        }
+      }
     },
     "commands": {
       "type": "object",
