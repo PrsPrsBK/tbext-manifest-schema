@@ -1366,11 +1366,6 @@
           "type": "string",
           "description": "*deprecated!* \nThis property was never used."
         },
-        "settings_url": {
-          "type": "string",
-          "format": "relativeUrl",
-          "description": "*deprecated!* \nA page for configuring accounts, this is obsolete after Thunderbird 60.\npreprocess: localize"
-        },
         "management_url": {
           "type": "string",
           "format": "relativeUrl",
