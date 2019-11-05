@@ -1046,8 +1046,25 @@
       }
     },
     "content_security_policy": {
-      "type": "string",
-      "format": "contentSecurityPolicy",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "contentSecurityPolicy"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "extension_pages": {
+              "type": "string",
+              "format": "contentSecurityPolicy"
+            },
+            "content_scripts": {
+              "type": "string",
+              "format": "contentSecurityPolicy"
+            }
+          }
+        }
+      ],
       "description": "onError: warn"
     },
     "permissions": {
