@@ -174,6 +174,7 @@ Both are in `License` directory.
   * New:  `data_format` property of `cloud_file` [1580838](https://bugzilla.mozilla.org/show_bug.cgi?id=1580838)
 * 2019-10-25 0.9.0 Removal: `settingsUrl` of `CloudFile` API
   [1581496](https://bugzilla.mozilla.org/show_bug.cgi?id=1581496)
-
+* 2019-11-04 0.10.0 Add: `content_security_policy` may be `{ "extension_pages":xxxx, "content_scripts":xxxx }`
+  [1581609](https://bugzilla.mozilla.org/show_bug.cgi?id=1581609)
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
