@@ -1562,6 +1562,12 @@
       "items": {
         "$ref": "#/definitions/ProtocolHandler"
       }
+    },
+    "l10n_resources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   }
 }
