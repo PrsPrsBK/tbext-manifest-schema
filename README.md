@@ -160,14 +160,14 @@ Both are in `License` directory.
 
 * 2019-03-21 0.0.1
 * 2019-03-27 0.1.0 geckoProfiler
-* 2019-04-10 0.2.0 new property: `dark_theme`
-* 2019-04-16 0.3.0 new property: `chrome_settings_overrides`
-* 2019-04-26 0.4.0 new permission: `accountsFolders`
+* 2019-04-10 0.2.0 New property: `dark_theme`
+* 2019-04-16 0.3.0 New property: `chrome_settings_overrides`
+* 2019-04-26 0.4.0 New permission: `accountsFolders`
 * 2019-05-09 0.5.0 Removed: `icons` of `ThemeType`
   [1548769](https://bugzilla.mozilla.org/show_bug.cgi?id=1548769)
 * 2019-05-20 0.5.1 fix: many permissions. `tabs`, `experiments` or so. 
-* 2019-05-22 0.6.0 new `type` property of `legacy`
-* 2019-06-15 0.7.0 new `edge` property of `browser_specific_settings`
+* 2019-05-22 0.6.0 New `type` property of `legacy`
+* 2019-06-15 0.7.0 New `edge` property of `browser_specific_settings`
   [1542351](https://bugzilla.mozilla.org/show_bug.cgi?id=1542351)
 * 2019-09-27 0.8.0
   * New: `messageDisplayAction` API [1531597](https://bugzilla.mozilla.org/show_bug.cgi?id=1531597)
@@ -176,5 +176,6 @@ Both are in `License` directory.
   [1581496](https://bugzilla.mozilla.org/show_bug.cgi?id=1581496)
 * 2019-11-04 0.10.0 Add: `content_security_policy` may be `{ "extension_pages":xxxx, "content_scripts":xxxx }`
   [1581609](https://bugzilla.mozilla.org/show_bug.cgi?id=1581609)
+* 2019-11-08 0.11.0 New property: `l10n_resources`
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
