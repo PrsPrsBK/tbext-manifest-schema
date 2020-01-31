@@ -178,5 +178,7 @@ Both are in `License` directory.
   [1581609](https://bugzilla.mozilla.org/show_bug.cgi?id=1581609)
 * 2019-11-08 0.11.0 New property: `l10n_resources`
   [1457865](https://bugzilla.mozilla.org/show_bug.cgi?id=1457865)
+* 2020-01-31 0.12.0 New property: `isolated_world` of `content_security_policy`
+  [1594232](https://bugzilla.mozilla.org/show_bug.cgi?id=1594232)
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
