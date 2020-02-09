@@ -39,6 +39,7 @@
         "notifications",
         "accountsRead",
         "addressBooks",
+        "compose",
         "accountsFolders",
         "menus.overrideContext",
         "messagesMove",
