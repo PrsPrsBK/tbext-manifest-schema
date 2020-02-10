@@ -1450,36 +1450,6 @@
         }
       }
     },
-    "legacy": {
-      "oneOf": [
-        {
-          "type": "boolean"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "enum": [
-                "xul",
-                "bootstrap"
-              ]
-            },
-            "options": {
-              "type": "object",
-              "properties": {
-                "page": {
-                  "type": "string"
-                },
-                "open_in_tab": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
     "message_display_action": {
       "type": "object",
       "additionalProperties": {
