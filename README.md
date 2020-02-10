@@ -182,5 +182,7 @@ Both are in `License` directory.
   [1594232](https://bugzilla.mozilla.org/show_bug.cgi?id=1594232)
 * 2020-02-09 0.13.0 New permission: `compose`
   [1613562](https://bugzilla.mozilla.org/show_bug.cgi?id=1613562)
+* 2020-02-11 0.14.0 Removal: `legacy` API
+  [1614237](https://bugzilla.mozilla.org/show_bug.cgi?id=1614237)
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
