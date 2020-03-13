@@ -184,5 +184,8 @@ Both are in `License` directory.
   [1613562](https://bugzilla.mozilla.org/show_bug.cgi?id=1613562)
 * 2020-02-11 0.14.0 Removal: `legacy` API
   [1614237](https://bugzilla.mozilla.org/show_bug.cgi?id=1614237)
+* 2020-03-13 NO RELEASE
+  * [1621873](https://bugzilla.mozilla.org/show_bug.cgi?id=1621873)
+  * [changeset 28977](https://hg.mozilla.org/comm-central/rev/976e651ef00bb0ce673ffe95961f9114571977cd)
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
