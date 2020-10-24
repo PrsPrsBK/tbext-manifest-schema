@@ -4,7 +4,7 @@
   "version": "0.14.0",
   "author": "PrsPrsBK",
   "devDependencies": {
-    "strip-json-comments": "^2.0.1"
+    "strip-json-comments": "^3.0.1"
   },
   "files": [
     "tbext.min.json",
