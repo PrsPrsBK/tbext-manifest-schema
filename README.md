@@ -188,4 +188,9 @@ Both are in `License` directory.
   * [1621873](https://bugzilla.mozilla.org/show_bug.cgi?id=1621873)
   * [changeset 28977](https://hg.mozilla.org/comm-central/rev/976e651ef00bb0ce673ffe95961f9114571977cd)
 
+* 2020-10-26 0.15.0 very many changes from April To October. 
+
+  * Permission [1630413](https://bugzilla.mozilla.org/show_bug.cgi?id=1630413)
+  * OptionalPermission [1622917](https://bugzilla.mozilla.org/show_bug.cgi?id=1622917)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
