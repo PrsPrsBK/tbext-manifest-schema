@@ -29,24 +29,37 @@
         "$ref": "#/definitions/UnrecognizedProperty"
       }
     },
-    "OptionalPermission": {
+    "OptionalPermissionNoPrompt": {
       "type": "string",
       "enum": [
-        "clipboardRead",
-        "clipboardWrite",
-        "geolocation",
-        "idle",
-        "notifications",
-        "accountsRead",
-        "addressBooks",
-        "compose",
-        "accountsFolders",
-        "menus.overrideContext",
-        "messagesMove",
-        "messagesRead",
-        "activeTab",
-        "tabs",
-        "tabHide"
+        "idle"
+      ]
+    },
+    "OptionalPermission": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/OptionalPermissionNoPrompt"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "clipboardRead",
+            "clipboardWrite",
+            "geolocation",
+            "notifications",
+            "accountsRead",
+            "addressBooks",
+            "compose",
+            "messagesModify",
+            "accountsFolders",
+            "messagesMove",
+            "messagesRead",
+            "tabs",
+            "tabHide",
+            "management",
+            "pkcs11"
+          ]
+        }
       ]
     },
     "OptionalPermissionOrOrigin": {
@@ -59,7 +72,7 @@
         }
       ]
     },
-    "Permission": {
+    "PermissionNoPrompt": {
       "oneOf": [
         {
           "$ref": "#/definitions/OptionalPermission"
@@ -70,23 +83,38 @@
             "alarms",
             "mozillaAddons",
             "storage",
-            "unlimitedStorage",
+            "unlimitedStorage"
+          ]
+        }
+      ]
+    },
+    "Permission": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/PermissionNoPrompt"
+        },
+        {
+          "$ref": "#/definitions/OptionalPermission"
+        },
+        {
+          "type": "string",
+          "enum": [
             "accountsRead",
             "addressBooks",
             "browser_action",
             "cloud_file",
             "compose_action",
+            "compose",
+            "messagesModify",
             "accountsFolders",
             "menus",
             "messagesRead",
             "message_display_action",
             "commands",
             "geckoProfiler",
-            "management",
             "optional_permissions",
             "pkcs11",
-            "nativeMessaging",
-            "theme"
+            "nativeMessaging"
           ]
         },
         {
@@ -488,7 +516,7 @@
     },
     "ImageDetails": {
       "type": "object",
-      "description": "Details about the format and quality of an image.",
+      "description": "Details about the format, quality, area and scale of the capture.",
       "properties": {
         "format": {
           "$ref": "#/definitions/ImageFormat",
@@ -499,6 +527,28 @@
           "minimum": 0,
           "maximum": 100,
           "description": "When format is <code>\"jpeg\"</code>, controls the quality of the resulting image.  This value is ignored for PNG images.  As quality is decreased, the resulting image will have more visual artifacts, and the number of bytes needed to store it will decrease."
+        },
+        "rect": {
+          "type": "object",
+          "description": "The area of the document to capture, in CSS pixels, relative to the page.  If omitted, capture the visible viewport.",
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "width": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            }
+          }
+        },
+        "scale": {
+          "type": "number",
+          "description": "The scale of the resulting image.  Defaults to <code>devicePixelRatio</code>."
         }
       }
     },
@@ -1008,6 +1058,15 @@
           "additionalProperties": {
             "$ref": "#/definitions/UnrecognizedProperty"
           }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "service_worker": {
+              "$ref": "#/definitions/ExtensionURL"
+            }
+          },
+          "postprocess": "requireBackgroundServiceWorkerEnabled"
         }
       ]
     },
@@ -1252,8 +1311,20 @@
               "description": "preprocess: localize"
             },
             "keyword": {
-              "type": "string",
-              "description": "preprocess: localize"
+              "oneOf": [
+                {
+                  "type": "string",
+                  "description": "preprocess: localize"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "description": "preprocess: localize"
+                  },
+                  "minItems": 1
+                }
+              ]
             },
             "search_url": {
               "type": "string",
@@ -1397,7 +1468,7 @@
         "management_url": {
           "type": "string",
           "format": "relativeUrl",
-          "description": "A page for configuring accounts, to be displayed in the preferences UI.\npreprocess: localize"
+          "description": "A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: cloudFile, extension, i18n, runtime, storage, test.\npreprocess: localize"
         },
         "data_format": {
           "type": "string",
