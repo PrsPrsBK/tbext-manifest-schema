@@ -272,9 +272,6 @@ const aggregate = (rootDir, apiGroup, result) => {
                 }
               }
               else if(typ.id) {
-                if(typ.id ==='Permission') {
-                  console.log(`typ.id-${typ.id}-${schemaFileFull}`);
-                }
                 if(result.definitions[typ.id] !== undefined) {
                   console.log(`WARN: dup at ${apiSpec.namespace}`);
                 }
