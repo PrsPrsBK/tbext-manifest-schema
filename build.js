@@ -272,6 +272,9 @@ const aggregate = (rootDir, apiGroup, result) => {
                 }
               }
               else if(typ.id) {
+                if(typ.id ==='Permission') {
+                  console.log(`typ.id-${typ.id}-${schemaFileFull}`);
+                }
                 if(result.definitions[typ.id] !== undefined) {
                   console.log(`WARN: dup at ${apiSpec.namespace}`);
                 }
@@ -480,11 +483,15 @@ const convertRoot = raw => {
     convertSub(result.properties[key], key, false);
   }
   for(const perm of result.definitions.permissionsList.enum) {
+    let wk = perm;
     if(perm.includes(':')) {
-      result.definitions.Permission.oneOf[1].enum.push(perm.slice(1 + perm.indexOf(':')));
+      wk = perm.slice(1 + perm.indexOf(':'));
     }
-    else {
-      result.definitions.Permission.oneOf[1].enum.push(perm);
+    if(!result.definitions.Permission.oneOf[2]) {
+      result.definitions.Permission.oneOf.push({ type: 'string', enum: [] });
+    }
+    if(result.definitions.Permission.oneOf[2].enum.includes(wk) === false) {
+      result.definitions.Permission.oneOf[2].enum.push(wk);
     }
   }
   for(const pat of result.definitions.permissionsList.pattern) {
@@ -496,8 +503,8 @@ const convertRoot = raw => {
     if(perm.includes(':')) {
       wk = perm.slice(1 + perm.indexOf(':'));
     }
-    if(result.definitions.OptionalPermission.enum.includes(wk) === false) {
-      result.definitions.OptionalPermission.enum.push(wk);
+    if(result.definitions.OptionalPermission.oneOf[1].enum.includes(wk) === false) {
+      result.definitions.OptionalPermission.oneOf[1].enum.push(wk);
     }
   }
   result.definitions.optionalPermissionsList = undefined;
