@@ -193,4 +193,7 @@ Both are in `License` directory.
   * Permission [1630413](https://bugzilla.mozilla.org/show_bug.cgi?id=1630413)
   * OptionalPermission [1622917](https://bugzilla.mozilla.org/show_bug.cgi?id=1622917)
 
+* 2020-11-28 0.16.0 New property: `default_label` of `browser_action`, `compose_action`, and `message_display_action`
+  [1583478](https://bugzilla.mozilla.org/show_bug.cgi?id=1583478)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
