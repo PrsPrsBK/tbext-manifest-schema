@@ -1264,6 +1264,10 @@
         "$ref": "#/definitions/UnrecognizedProperty"
       },
       "properties": {
+        "default_label": {
+          "type": "string",
+          "description": "preprocess: localize"
+        },
         "default_title": {
           "type": "string",
           "description": "preprocess: localize"
@@ -1487,6 +1491,10 @@
         "$ref": "#/definitions/UnrecognizedProperty"
       },
       "properties": {
+        "default_label": {
+          "type": "string",
+          "description": "preprocess: localize"
+        },
         "default_title": {
           "type": "string",
           "description": "preprocess: localize"
@@ -1527,6 +1535,10 @@
         "$ref": "#/definitions/UnrecognizedProperty"
       },
       "properties": {
+        "default_label": {
+          "type": "string",
+          "description": "preprocess: localize"
+        },
         "default_title": {
           "type": "string",
           "description": "preprocess: localize"
