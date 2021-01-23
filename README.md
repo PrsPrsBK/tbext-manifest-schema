@@ -196,4 +196,7 @@ Both are in `License` directory.
 * 2020-11-28 0.16.0 New property: `default_label` of `browser_action`, `compose_action`, and `message_display_action`
   [1583478](https://bugzilla.mozilla.org/show_bug.cgi?id=1583478)
 
+* 2021-01-23 Removal: `content_scripts` and `isolated_world` properties of `content_security_policy`
+  [1594234](https://bugzilla.mozilla.org/show_bug.cgi?id=1594234)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
