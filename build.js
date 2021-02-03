@@ -56,6 +56,10 @@ const outputSpec = {
           schema: 'toolkit/components/extensions/schemas/manifest.json',
         },
         {
+          name: 'browsing_data',
+          schema: 'toolkit/components/extensions/schemas/browsing_data.json',
+        },
+        {
           name: 'commands',
           schema: 'browser/components/extensions/schemas/commands.json',
         },

@@ -58,6 +58,7 @@
             "activeTab",
             "tabs",
             "tabHide",
+            "browsingData",
             "management",
             "pkcs11"
           ]
@@ -112,6 +113,7 @@
             "menus",
             "messagesRead",
             "message_display_action",
+            "browsingData",
             "commands",
             "geckoProfiler",
             "optional_permissions",
