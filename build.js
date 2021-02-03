@@ -92,6 +92,10 @@ const outputSpec = {
           schema: 'toolkit/components/extensions/schemas/i18n.json',
         },
         {
+          name: 'identity',
+          schema: 'toolkit/components/extensions/schemas/identity.json',
+        },
+        {
           name: 'management',
           schema: 'toolkit/components/extensions/schemas/management.json',
         },

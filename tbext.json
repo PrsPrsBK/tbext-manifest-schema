@@ -116,6 +116,7 @@
             "browsingData",
             "commands",
             "geckoProfiler",
+            "identity",
             "optional_permissions",
             "pkcs11",
             "nativeMessaging",
