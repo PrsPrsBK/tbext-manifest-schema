@@ -52,8 +52,10 @@
             "compose",
             "messagesModify",
             "accountsFolders",
+            "menus.overrideContext",
             "messagesMove",
             "messagesRead",
+            "activeTab",
             "tabs",
             "tabHide",
             "management",
@@ -114,7 +116,8 @@
             "geckoProfiler",
             "optional_permissions",
             "pkcs11",
-            "nativeMessaging"
+            "nativeMessaging",
+            "theme"
           ]
         },
         {

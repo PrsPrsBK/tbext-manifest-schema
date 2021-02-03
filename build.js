@@ -212,7 +212,7 @@ const makeSchemaList = (rootDir, apiGroup) => {
           apiGroup.schemaList.push(apiItem);
         }
         else {
-          console.log(`skiped: irregular path for ${apiName}. ${apiItemList[apiName].schema}`);
+          console.log(`skipped: irregular path for ${apiName}. ${apiItemList[apiName].schema}`);
         }
       }
     }
@@ -221,6 +221,8 @@ const makeSchemaList = (rootDir, apiGroup) => {
 
 const aggregate = (rootDir, apiGroup, result) => {
   makeSchemaList(rootDir, apiGroup);
+  const clasifiedAsPermission = [ 'Permission', 'PermissionNoPrompt' ];
+  const clasifiedAsOptionalPermission = [ 'OptionalPermission', 'OptionalPermissionNoPrompt' ];
   for(const schemaItem of apiGroup.schemaList) {
     const schemaFileFull = path.join(rootDir, schemaItem.schema);
     try {
@@ -240,7 +242,7 @@ const aggregate = (rootDir, apiGroup, result) => {
                   result.properties[propName] = typ.properties[propName];
                 }
               }
-              else if(typ['$extend'] === 'Permission') {
+              else if(clasifiedAsPermission.includes(typ['$extend'])) {
                 if(typ.choices[0].enum !== undefined) {
                   for(const p of typ.choices[0].enum) {
                     if(result.definitions.permissionsList.enum.includes(p) === false) {
@@ -261,7 +263,7 @@ const aggregate = (rootDir, apiGroup, result) => {
                   }
                 }
               }
-              else if(typ['$extend'] === 'OptionalPermission') {
+              else if(clasifiedAsOptionalPermission.includes(typ['$extend'])) {
                 for(const p of typ.choices[0].enum) {
                   if(result.definitions.optionalPermissionsList.enum.includes(p) === false) {
                     result.definitions.optionalPermissionsList.enum.push(p);
@@ -277,6 +279,9 @@ const aggregate = (rootDir, apiGroup, result) => {
                 }
                 result.definitions[typ.id] = typ;
               }
+              else {
+                console.log(`Not add - ${JSON.stringify(typ)}`);
+              }
             }
           }
         }
@@ -285,6 +290,9 @@ const aggregate = (rootDir, apiGroup, result) => {
             for(const p of apiSpec.permissions) {
               if(result.definitions.permissionsList.enum.includes(p) === false) {
                 result.definitions.permissionsList.enum.push(p);
+              }
+              else {
+                console.log(`Perm ADD: WARN: dup at apiSpec.permissions: ${apiSpec.namespace}: ${p}`);
               }
             }
           }
@@ -304,7 +312,7 @@ const cnvOptional = (member, key) => {
         member.optional = undefined;
       }
       else {
-        console.log(key);
+        console.log(`member.optional is false: ${key}`);
       }
     }
     else {
