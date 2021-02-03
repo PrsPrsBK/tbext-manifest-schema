@@ -199,4 +199,6 @@ Both are in `License` directory.
 * 2021-01-23 Removal: `content_scripts` and `isolated_world` properties of `content_security_policy`
   [1594234](https://bugzilla.mozilla.org/show_bug.cgi?id=1594234)
 
+* 2021-02-03 0.19.1 fix: some permissions are not included, e.g. `activeTab`
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
