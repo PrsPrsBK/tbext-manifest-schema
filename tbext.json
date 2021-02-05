@@ -60,7 +60,8 @@
             "tabHide",
             "browsingData",
             "management",
-            "pkcs11"
+            "pkcs11",
+            "nativeMessaging"
           ]
         }
       ]
@@ -119,7 +120,6 @@
             "identity",
             "optional_permissions",
             "pkcs11",
-            "nativeMessaging",
             "theme"
           ]
         },
