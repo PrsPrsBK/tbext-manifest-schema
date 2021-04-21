@@ -818,7 +818,8 @@
               "$ref": "#/definitions/ThemeColor"
             },
             "toolbar_field_separator": {
-              "$ref": "#/definitions/ThemeColor"
+              "$ref": "#/definitions/ThemeColor",
+              "description": "*deprecated!* This color property is ignored in Firefox >= 89."
             },
             "toolbar_top_separator": {
               "$ref": "#/definitions/ThemeColor"

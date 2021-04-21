@@ -210,4 +210,8 @@ Both are in `License` directory.
 
   [1626365](https://bugzilla.mozilla.org/show_bug.cgi?id=1626365)
 
+* 2021-04-21 No Update
+  * change: docstring of `toolbar_field_separator` of `colors` of `ThemeType`
+    [1703590](https://bugzilla.mozilla.org/show_bug.cgi?id=1703590)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
