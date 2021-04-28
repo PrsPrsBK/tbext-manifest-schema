@@ -217,4 +217,7 @@ Both are in `License` directory.
 * 2021-04-24 New: `matrix` scheme of `protocol` of `ProtocolHandler`
   [1688030](https://bugzilla.mozilla.org/show_bug.cgi?id=1688030)
 
+* 2021-04-28 New: `browser_action.type`, `compose_action.type`, `message_display_action.type`
+  [1705867](https://bugzilla.mozilla.org/show_bug.cgi?id=1705867)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
