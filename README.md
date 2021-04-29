@@ -214,10 +214,12 @@ Both are in `License` directory.
   * change: docstring of `toolbar_field_separator` of `colors` of `ThemeType`
     [1703590](https://bugzilla.mozilla.org/show_bug.cgi?id=1703590)
 
-* 2021-04-24 New: `matrix` scheme of `protocol` of `ProtocolHandler`
+* 2021-04-24 0.19.0 New: `matrix` scheme of `protocol` of `ProtocolHandler`
   [1688030](https://bugzilla.mozilla.org/show_bug.cgi?id=1688030)
 
-* 2021-04-28 New: `browser_action.type`, `compose_action.type`, `message_display_action.type`
+* 2021-04-28 0.20.0 New: `browser_action.type`, `compose_action.type`, `message_display_action.type`
   [1705867](https://bugzilla.mozilla.org/show_bug.cgi?id=1705867)
+
+* 2021-04-29 No Update: Removal: 0.20.0
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)

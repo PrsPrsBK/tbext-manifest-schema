@@ -1281,7 +1281,7 @@
           "items": {
             "$ref": "#/definitions/ThemeIcons"
           },
-          "description": "Specifies icons to use for dark and light themes."
+          "description": "Specifies icons to use for dark and light themes"
         },
         "default_popup": {
           "type": "string",
@@ -1295,15 +1295,6 @@
         "default_area": {
           "description": "Currently unused.",
           "type": "string"
-        },
-        "type": {
-          "description": "Specifies the type of the button. Default type is <code>button</code>.",
-          "type": "string",
-          "enum": [
-            "button",
-            "menu",
-            "menu-button"
-          ]
         }
       }
     },
@@ -1529,20 +1520,11 @@
           "default": false
         },
         "default_area": {
-          "description": "Defines the location the composeAction will appear by default. The default location is <code>maintoolbar</code>.",
+          "description": "Defines the location the composeAction will appear by default. The default location is maintoolbar.",
           "type": "string",
           "enum": [
             "maintoolbar",
             "formattoolbar"
-          ]
-        },
-        "type": {
-          "description": "Specifies the type of the button. Default type is <code>button</code>.",
-          "type": "string",
-          "enum": [
-            "button",
-            "menu",
-            "menu-button"
           ]
         }
       }
@@ -1584,15 +1566,6 @@
         "default_area": {
           "description": "Currently unused.",
           "type": "string"
-        },
-        "type": {
-          "description": "Specifies the type of the button. Default type is <code>button</code>.",
-          "type": "string",
-          "enum": [
-            "button",
-            "menu",
-            "menu-button"
-          ]
         }
       }
     },
