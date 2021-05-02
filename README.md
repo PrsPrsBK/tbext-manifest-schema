@@ -222,4 +222,14 @@ Both are in `License` directory.
 
 * 2021-04-29 No Update: Removal: 0.20.0
 
+* 2021-05-02 No Update
+
+  * Change: `content_security_policy` has version specs(`max_manifest_version` and `min...`), but currently this Schema does not handle them.
+    Maybe [draft 7's `if-then-else`](https://json-schema.org/understanding-json-schema/reference/conditionals.html) resolves this.
+    [1696043](https://bugzilla.mozilla.org/show_bug.cgi?id=1696043)
+  * Note: At `mozilla-central`, `chrome_settings_overrides` - `search_provider.favicon_url` can be "strictRelativeUrl" on ManifestV3.
+    This has no effect because JSON Schema meta-spec (draft 7, and its validators) does not know Mozilla's "format"s.
+    And on `comm`, there is its own `chrome_settings_overrides.json`, so no effect.
+    [1697059](https://bugzilla.mozilla.org/show_bug.cgi?id=1697059)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)

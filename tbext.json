@@ -1118,10 +1118,12 @@
     "content_security_policy": {
       "oneOf": [
         {
+          "max_manifest_version": 2,
           "type": "string",
           "format": "contentSecurityPolicy"
         },
         {
+          "min_manifest_version": 3,
           "type": "object",
           "additionalProperties": {
             "$ref": "#/definitions/UnrecognizedProperty"
