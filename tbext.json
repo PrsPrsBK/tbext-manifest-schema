@@ -1459,22 +1459,9 @@
         "$ref": "#/definitions/UnrecognizedProperty"
       },
       "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the cloud file service.\npreprocess: localize"
-        },
-        "service_url": {
-          "type": "string",
-          "description": "URL to the web page of the cloud file service."
-        },
-        "new_account_url": {
-          "type": "string",
-          "description": "*deprecated!* \nThis property was never used."
-        },
-        "management_url": {
-          "type": "string",
-          "format": "relativeUrl",
-          "description": "A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: cloudFile, extension, i18n, runtime, storage, test.\npreprocess: localize"
+        "browser_style": {
+          "type": "boolean",
+          "default": true
         },
         "data_format": {
           "type": "string",
@@ -1484,6 +1471,23 @@
             "ArrayBuffer",
             "File"
           ]
+        },
+        "management_url": {
+          "type": "string",
+          "format": "relativeUrl",
+          "description": "A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: cloudFile, extension, i18n, runtime, storage, test.\npreprocess: localize"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the cloud file service.\npreprocess: localize"
+        },
+        "new_account_url": {
+          "type": "string",
+          "description": "*deprecated!* \nThis property was never used."
+        },
+        "service_url": {
+          "type": "string",
+          "description": "URL to the web page of the cloud file service."
         }
       }
     },
