@@ -232,4 +232,7 @@ Both are in `License` directory.
     And on `comm`, there is its own `chrome_settings_overrides.json`, so no effect.
     [1697059](https://bugzilla.mozilla.org/show_bug.cgi?id=1697059)
 
+* 2021-05-11 0.21.0 New: `browser_style` of `cloud_file`
+  [1523094](https://bugzilla.mozilla.org/show_bug.cgi?id=1523094)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
