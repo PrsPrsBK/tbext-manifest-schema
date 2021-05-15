@@ -235,4 +235,8 @@ Both are in `License` directory.
 * 2021-05-11 0.21.0 New: `browser_style` of `cloud_file`
   [1523094](https://bugzilla.mozilla.org/show_bug.cgi?id=1523094)
 
+* 2021-05-15 New: object `{ resources: [string], matches: [string] }` array for `web_accessible_resources` (ManifestV3)
+    [1696580](https://bugzilla.mozilla.org/show_bug.cgi?id=1696580)
+    [1697334](https://bugzilla.mozilla.org/show_bug.cgi?id=1697334)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
