@@ -239,4 +239,7 @@ Both are in `License` directory.
     [1696580](https://bugzilla.mozilla.org/show_bug.cgi?id=1696580)
     [1697334](https://bugzilla.mozilla.org/show_bug.cgi?id=1697334)
 
+* 2021-05-22 No Update: default value of `browser_style` changed from `true` to `false`.
+  [1712058](https://bugzilla.mozilla.org/show_bug.cgi?id=1712058)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)

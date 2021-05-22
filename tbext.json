@@ -1294,14 +1294,15 @@
       "properties": {
         "default_label": {
           "type": "string",
-          "description": "preprocess: localize"
+          "description": "The label of the browserAction, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.\npreprocess: localize"
         },
         "default_title": {
           "type": "string",
-          "description": "preprocess: localize"
+          "description": "The title of the browserAction. This shows up in the tooltip and the label. Defaults to the add-on name.\npreprocess: localize"
         },
         "default_icon": {
-          "$ref": "#/definitions/IconPath"
+          "$ref": "#/definitions/IconPath",
+          "description": "The icon for the messageDisplayAction."
         },
         "theme_icons": {
           "type": "array",
@@ -1314,10 +1315,11 @@
         "default_popup": {
           "type": "string",
           "format": "relativeUrl",
-          "description": "preprocess: localize"
+          "description": "The html document to be opened as a popup when the user clicks on the browserAction's icon.\npreprocess: localize"
         },
         "browser_style": {
           "type": "boolean",
+          "description": "Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.",
           "default": false
         },
         "default_area": {
@@ -1487,7 +1489,8 @@
       "properties": {
         "browser_style": {
           "type": "boolean",
-          "default": true
+          "description": "Enable browser styles. See the `MDN documentation <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.",
+          "default": false
         },
         "data_format": {
           "type": "string",
@@ -1501,7 +1504,7 @@
         "management_url": {
           "type": "string",
           "format": "relativeUrl",
-          "description": "A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: cloudFile, extension, i18n, runtime, storage, test.\npreprocess: localize"
+          "description": "A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: ``cloudFile``, ``extension``, ``i18n``, ``runtime``, ``storage``, ``test``.\npreprocess: localize"
         },
         "name": {
           "type": "string",
@@ -1525,14 +1528,15 @@
       "properties": {
         "default_label": {
           "type": "string",
-          "description": "preprocess: localize"
+          "description": "The label of the composeAction, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.\npreprocess: localize"
         },
         "default_title": {
           "type": "string",
-          "description": "preprocess: localize"
+          "description": "The title of the composeAction. This shows up in the tooltip and the label. Defaults to the add-on name.\npreprocess: localize"
         },
         "default_icon": {
-          "$ref": "#/definitions/IconPath"
+          "$ref": "#/definitions/IconPath",
+          "description": "The icon for the messageDisplayAction."
         },
         "theme_icons": {
           "type": "array",
@@ -1545,10 +1549,11 @@
         "default_popup": {
           "type": "string",
           "format": "relativeUrl",
-          "description": "preprocess: localize"
+          "description": "The html document to be opened as a popup when the user clicks on the composeAction's icon.\npreprocess: localize"
         },
         "browser_style": {
           "type": "boolean",
+          "description": "Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.",
           "default": false
         },
         "default_area": {
@@ -1569,14 +1574,15 @@
       "properties": {
         "default_label": {
           "type": "string",
-          "description": "preprocess: localize"
+          "description": "The label of the messageDisplayAction, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.\npreprocess: localize"
         },
         "default_title": {
           "type": "string",
-          "description": "preprocess: localize"
+          "description": "The title of the messageDisplayAction. This shows up in the tooltip and the label. Defaults to the add-on name.\npreprocess: localize"
         },
         "default_icon": {
-          "$ref": "#/definitions/IconPath"
+          "$ref": "#/definitions/IconPath",
+          "description": "The icon for the messageDisplayAction."
         },
         "theme_icons": {
           "type": "array",
@@ -1589,10 +1595,11 @@
         "default_popup": {
           "type": "string",
           "format": "relativeUrl",
-          "description": "preprocess: localize"
+          "description": "The html document to be opened as a popup when the user clicks on the messageDisplayAction's icon.\npreprocess: localize"
         },
         "browser_style": {
           "type": "boolean",
+          "description": "Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.",
           "default": false
         },
         "default_area": {
