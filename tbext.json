@@ -50,6 +50,7 @@
             "accountsRead",
             "addressBooks",
             "compose",
+            "compose.send",
             "messagesModify",
             "accountsFolders",
             "menus.overrideContext",
