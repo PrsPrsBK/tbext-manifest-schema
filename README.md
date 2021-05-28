@@ -235,11 +235,14 @@ Both are in `License` directory.
 * 2021-05-11 0.21.0 New: `browser_style` of `cloud_file`
   [1523094](https://bugzilla.mozilla.org/show_bug.cgi?id=1523094)
 
-* 2021-05-15 New: object `{ resources: [string], matches: [string] }` array for `web_accessible_resources` (ManifestV3)
+* 2021-05-15 0.22.0 New: object `{ resources: [string], matches: [string] }` array for `web_accessible_resources` (ManifestV3)
     [1696580](https://bugzilla.mozilla.org/show_bug.cgi?id=1696580)
     [1697334](https://bugzilla.mozilla.org/show_bug.cgi?id=1697334)
 
 * 2021-05-22 No Update: default value of `browser_style` changed from `true` to `false`.
   [1712058](https://bugzilla.mozilla.org/show_bug.cgi?id=1712058)
+
+* 2021-05-28 0.23.0 New: `compose.send` permission
+  [1699672](https://bugzilla.mozilla.org/show_bug.cgi?id=1699672)
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
