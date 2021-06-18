@@ -53,6 +53,7 @@
             "compose.send",
             "messagesModify",
             "accountsFolders",
+            "accountsIdentities",
             "menus.overrideContext",
             "messagesMove",
             "messagesRead",
