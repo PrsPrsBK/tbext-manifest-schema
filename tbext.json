@@ -1169,6 +1169,7 @@
         {
           "min_manifest_version": 3,
           "type": "array",
+          "postprocess": "webAcessibleMatching",
           "items": {
             "type": "object",
             "properties": {
@@ -1182,6 +1183,12 @@
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/MatchPatternRestricted"
+                }
+              },
+              "extensions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ExtensionID"
                 }
               }
             }
