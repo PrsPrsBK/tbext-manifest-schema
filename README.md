@@ -248,4 +248,7 @@ Both are in `License` directory.
 * 2021-06-18 0.24.0 New: `accountsIdentities` permission for `identity` API.
   [1642690](https://bugzilla.mozilla.org/show_bug.cgi?id=1642690)
 
+* 2021-06-25 New: `extensions` array for `web_accessible_resources` (ManifestV3)
+  [1711168](https://bugzilla.mozilla.org/show_bug.cgi?id=1711168)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
