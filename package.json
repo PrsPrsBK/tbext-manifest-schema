@@ -1,7 +1,7 @@
 {
   "name": "tbext-manifest-schema",
   "description": "JSON schema for Thunderbird Extension manifest.",
-  "version": "0.25.0",
+  "version": "0.26.0",
   "author": "PrsPrsBK",
   "devDependencies": {
     "strip-json-comments": "^3.0.1"
