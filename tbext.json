@@ -57,6 +57,7 @@
             "menus.overrideContext",
             "messagesMove",
             "messagesRead",
+            "messagesDelete",
             "activeTab",
             "tabs",
             "tabHide",
