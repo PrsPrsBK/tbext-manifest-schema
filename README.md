@@ -254,7 +254,12 @@ Both are in `License` directory.
 * 2021-07-08 0.26.0 New: `messagesDelete` permission for `messages` API
   [1616114](https://bugzilla.mozilla.org/show_bug.cgi?id=1616114)
 
-* 2021-07-08 0.27.0 Removed(0.25.0): : `extensions` array for `web_accessible_resources` (ManifestV3)
+* 2021-07-08 0.27.0 Removed(0.25.0): `extensions` array for `web_accessible_resources` (ManifestV3)
   [1711168](https://bugzilla.mozilla.org/show_bug.cgi?id=1711168)
+
+* 2021-07-13 0.xx.0 Removed: `accountsFolders` permission
+  [1719908](https://bugzilla.mozilla.org/show_bug.cgi?id=1719908)
+  [1719093](https://bugzilla.mozilla.org/show_bug.cgi?id=1719093)
+  [1520427](https://bugzilla.mozilla.org/show_bug.cgi?id=1520427)
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
