@@ -257,9 +257,8 @@ Both are in `License` directory.
 * 2021-07-08 0.27.0 Removed(0.25.0): `extensions` array for `web_accessible_resources` (ManifestV3)
   [1711168](https://bugzilla.mozilla.org/show_bug.cgi?id=1711168)
 
-* 2021-07-13 0.xx.0 Removed: `accountsFolders` permission
-  [1719908](https://bugzilla.mozilla.org/show_bug.cgi?id=1719908)
-  [1719093](https://bugzilla.mozilla.org/show_bug.cgi?id=1719093)
+* 2021-07-13 No Update Modified: `accountsFolders` permission was removed from `folders` namespace's `permissions` array,
+  and added to `permissions` of `create()`, `rename()`, `delete()` of `folders` API.
   [1520427](https://bugzilla.mozilla.org/show_bug.cgi?id=1520427)
 
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)

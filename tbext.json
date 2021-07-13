@@ -106,6 +106,7 @@
         {
           "type": "string",
           "enum": [
+            "accountsFolders",
             "accountsRead",
             "addressBooks",
             "browser_action",

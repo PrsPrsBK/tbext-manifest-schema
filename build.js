@@ -11,7 +11,7 @@ const outputSpec = {
   aggBase: {
     definitions: {
       permissionsList: {
-        enum: [],
+        enum: [ 'accountsFolders' ],
         pattern: [], // only for Thunderbird.
       },
       optionalPermissionsList: {
