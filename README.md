@@ -261,4 +261,7 @@ Both are in `License` directory.
   and added to `permissions` of `create()`, `rename()`, `delete()` of `folders` API.
   [1520427](https://bugzilla.mozilla.org/show_bug.cgi?id=1520427)
 
+* 2021-07-26 0.28.0 New: `host_permissions` for ManifestV3
+  [1693385](https://bugzilla.mozilla.org/show_bug.cgi?id=1693385)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
