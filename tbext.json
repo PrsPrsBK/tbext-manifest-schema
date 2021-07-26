@@ -1143,12 +1143,34 @@
       "description": "onError: warn"
     },
     "permissions": {
-      "type": "array",
       "default": [],
+      "oneOf": [
+        {
+          "max_manifest_version": 2,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PermissionOrOrigin",
+            "description": "onError: warn"
+          }
+        },
+        {
+          "min_manifest_version": 3,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Permission",
+            "description": "onError: warn"
+          }
+        }
+      ]
+    },
+    "host_permissions": {
+      "min_manifest_version": 3,
+      "type": "array",
       "items": {
-        "$ref": "#/definitions/PermissionOrOrigin",
+        "$ref": "#/definitions/MatchPattern",
         "description": "onError: warn"
-      }
+      },
+      "default": []
     },
     "optional_permissions": {
       "type": "array",
