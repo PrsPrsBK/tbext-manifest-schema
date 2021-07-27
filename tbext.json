@@ -1348,8 +1348,12 @@
           "default": false
         },
         "default_area": {
-          "description": "Currently unused.",
-          "type": "string"
+          "description": "Defines the location the browserAction will appear. The default location is ``maintoolbar``.",
+          "type": "string",
+          "enum": [
+            "maintoolbar",
+            "tabstoolbar"
+          ]
         }
       }
     },
@@ -1582,7 +1586,7 @@
           "default": false
         },
         "default_area": {
-          "description": "Defines the location the composeAction will appear by default. The default location is maintoolbar.",
+          "description": "Defines the location the composeAction will appear. The default location is ``maintoolbar``.",
           "type": "string",
           "enum": [
             "maintoolbar",
