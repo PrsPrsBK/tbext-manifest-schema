@@ -264,4 +264,7 @@ Both are in `License` directory.
 * 2021-07-26 0.28.0 New: `host_permissions` for ManifestV3
   [1693385](https://bugzilla.mozilla.org/show_bug.cgi?id=1693385)
 
+* 2021-07-27 0.29.0 New: `default_area` property of `browser_action`; `maintoolbar` or `tabstoolbar`.
+  [1722039](https://bugzilla.mozilla.org/show_bug.cgi?id=1722039)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
