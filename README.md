@@ -267,4 +267,9 @@ Both are in `License` directory.
 * 2021-07-27 0.29.0 New: `default_area` property of `browser_action`; `maintoolbar` or `tabstoolbar`.
   [1722039](https://bugzilla.mozilla.org/show_bug.cgi?id=1722039)
 
+* 2021-08-27 No Update
+
+  * New: `resetScrollPosition` property of argument of `captureTab()` and `captureVisibleTab()` of `tabs` API.
+    [1708403](https://bugzilla.mozilla.org/show_bug.cgi?id=1708403)
+
 [//]: # (vim:expandtab ff=unix fenc=utf-8 sw=2)
